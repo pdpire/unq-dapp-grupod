@@ -26,7 +26,7 @@ public class Event {
 		return this.getStateEvent().state();
 	}
 	
-	private int calculateCost() {
+	public int calculateCost() {
 		int ret= 0;
 		for (Place place : this.getPlaces()) {
 			ret = ret + place.getCost();
