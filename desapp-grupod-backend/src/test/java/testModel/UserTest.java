@@ -4,7 +4,12 @@ import org.junit.Test;
 
 import static org.mockito.Mockito.*;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 import model.FriendManager;
+import model.HandlerEvent;
+import model.Place;
 import model.User;
 
 public class UserTest{
@@ -35,6 +40,31 @@ public class UserTest{
 		user.removeFriend(friend);
 		
 		verify(friendManager, times(1)).removeFriend(friend);
+	}
+	
+	@Test
+	public void createEventTest(){
+		HandlerEvent handlerEvent = mock(HandlerEvent.class);
+		User user = new User();
+		user.setHandlerevent(handlerEvent);
+		User guest1 = new User();
+		User guest2 = new User();
+		
+		Date date = mock(Date.class);
+		
+		Place place = mock(Place.class);
+		ArrayList<Place> places = new ArrayList<Place>();
+		places.add(place);
+		
+		ArrayList<User> guests = new ArrayList<User>();
+		guests.add(guest1);
+		guests.add(guest2);
+		
+		doNothing().when(handlerEvent).createEvent(user, guests,date, places);
+		
+		user.createEvent(user, guests, date, places);
+		
+		verify(handlerEvent, times(1)).createEvent(user, guests,date, places);
 	}
 
 
