@@ -11,11 +11,6 @@ public class Profile {
 	private int amountMax;
 	
 	
-	
-	
-	
-	
-	
 	//-------------------------------getters and setters----------------------
 	public ArrayList<String> getMusicalGenres() {
 		return musicalGenres;
