@@ -1,0 +1,23 @@
+﻿---------------------------------------------------------------------
+TAG 1.0
+---------------------------------------------------------------------
+NEW FEATURES (lo que están entregando y está funcionando):
+* Primer parte del backend terminada, se implemento las siguientes funcionalidades:
+     -crear usuarios
+     -agregar usuarios,
+     -buscar eventos (por el momento solo de tipo economico)
+     -crear eventos del usuario.
+     -templates de api.googlemaps, uno con dos marcadores en el mapa, y otro con 2 marcadores indicandote un recorrido sugerido.
+
+NOTES (ej: funcionalidad que falta, alguna consideración especial):
+* faltaria agregar las siguientes funciones:
+     -un usuario pueda buscar amigos.
+     -se pueda buscar los tipos de eventos "Acompañado, Con amigos, Sopresa, De sol a sol".
+     -se pueda aceptar invitaciones de eventos de otros usuarios.
+     -un usuario pueda editar su perfil.
+     -integrar otra API sugerida.
+     
+
+KNOWN ISSUES (ej: funcionalidad que saben que están funcionando diferente, algún error conocido en la funcionalidad terminada, etc) :
+* tenemos que agregar factorys en algunas clases testeadas, ya que tenemos constructores mal instanciados.
+* place por el momento es data, tiene comportamiento cuando se agregen las otrs funciones
