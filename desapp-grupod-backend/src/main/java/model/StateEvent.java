@@ -17,7 +17,7 @@ public abstract class StateEvent {
 	}
 	
 	
-	public abstract void termiteEvent();
+	public abstract void terminateEvent();
 	public abstract void cancelEvent();
 	public abstract void activateEvent();
 	public abstract boolean state();

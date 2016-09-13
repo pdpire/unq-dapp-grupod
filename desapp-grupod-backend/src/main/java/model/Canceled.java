@@ -6,7 +6,7 @@ public class Canceled extends StateEvent {
 		super(event);
 	}
 
-	public void termiteEvent() {
+	public void terminateEvent() {
 
 	}
 

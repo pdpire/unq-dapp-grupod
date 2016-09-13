@@ -7,7 +7,7 @@ public class Finished extends StateEvent {
 		super(event);
 	}
 
-	public void termiteEvent() {
+	public void terminateEvent() {
 		
 	}
 
