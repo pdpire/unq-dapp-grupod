@@ -21,3 +21,5 @@ NOTES (ej: funcionalidad que falta, alguna consideración especial):
 KNOWN ISSUES (ej: funcionalidad que saben que están funcionando diferente, algún error conocido en la funcionalidad terminada, etc) :
 * tenemos que agregar factorys en algunas clases testeadas, ya que tenemos constructores mal instanciados.
 * place por el momento es data, tiene comportamiento cuando se agregen las otrs funciones
+
+Nota Pablo Pire: tuve un problema con mi pc y no pude hacer los commits desde allí, estan echos juntos desde la cuenta de Jonathan De Rojas aclarado en el comentario de cada commit.
