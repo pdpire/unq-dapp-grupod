@@ -2,6 +2,8 @@ package testModel;
 
 import org.junit.Test;
 
+import factory.UserFactory;
+
 import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
@@ -45,11 +47,9 @@ public class UserTest{
 	@Test
 	public void createEventTest(){
 		HandlerEvent handlerEvent = mock(HandlerEvent.class);
-		User user = new User();
-		user.setHandlerevent(handlerEvent);
-		User guest1 = new User();
+		User user = UserFactory.userWithHandlerEvent(handlerEvent);
+		User guest1 = new User();	
 		User guest2 = new User();
-		
 		Date date = mock(Date.class);
 		
 		Place place = mock(Place.class);
