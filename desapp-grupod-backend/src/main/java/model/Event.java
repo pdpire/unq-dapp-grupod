@@ -1,73 +1,46 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 
-public class Event {
-	
+public abstract class Event {
+
 	private StateEvent stateEvent;
-	private  ArrayList<Place> places;
-	private Date date;
-	private User userOwner;
-	private ArrayList<User> guests;
+	private Calendar date;
 	private int cost;
+	private EventType type;
+	private ArrayList<Enum> pleasures;
+	private ArrayList<User> invited;
 	
-	public Event(User owner, ArrayList<User> guests, Date date, ArrayList<Place> places){
-		
-		this.userOwner = owner;
-		this.guests = guests;
+	
+	public Event(EventType type, Calendar date, ArrayList<User> invited){
+		this.type = type;
 		this.date = date;
-		this.places = places;
 		this.cost = this.calculateCost();
 		this.stateEvent = new Actived(this);
+		this.invited = invited;
 	}
 	
 	public boolean getState(){
 		return this.getStateEvent().state();
 	}
 	
-	public int calculateCost() {
-		int ret= 0;
-		for (Place place : this.getPlaces()) {
-			ret = ret + place.getCost();
-		}
-		return ret;
-	
+	public void addGuest(User user) {
+		this.getInvited().add(user);
 	}
+	
+	public abstract int calculateCost();
+	public abstract boolean iCanAttend(User user);
+	
+	
 //  ----------------------- getters && setters  ----------------------------
 
-
-
-	public User getUserOwner() {
-		return userOwner;
-	}
-
-	public void setUserOwner(User userOwner) {
-		this.userOwner = userOwner;
-	}
-
-	public ArrayList<Place> getPlaces() {
-		return places;
-	}
-
-	public void setPlaces(ArrayList<Place> places) {
-		this.places = places;
-	}
-
-	public Date getDate() {
+	public Calendar getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(Calendar date) {
 		this.date = date;
-	}
-
-	public ArrayList<User> getGuests() {
-		return guests;
-	}
-
-	public void setGuests(ArrayList<User> guests) {
-		this.guests = guests;
 	}
 
 	public int getCost() {
@@ -85,5 +58,28 @@ public class Event {
 		this.stateEvent = stateEvent;
 	}
 	
-	
+	public ArrayList<User> getInvited() {
+		return invited;
+	}
+
+	public void setInvited(ArrayList<User> invited) {
+		this.invited = invited;
+	}
+
+	public EventType getType() {
+		return type;
+	}
+
+	public void setType(EventType type) {
+		this.type = type;
+	}
+
+	public ArrayList<Enum> getPleasures() {
+		return pleasures;
+	}
+
+	public void setPleasures(ArrayList<Enum> pleasures) {
+		this.pleasures = pleasures;
+	}
+
 }

@@ -10,6 +10,12 @@ public class Place {
 	private int cost;
 	private int capacity;
 	
+	public Place( ArrayList<String> musicalGenres, ArrayList<String> moviesGenres, ArrayList<String> foodStyles, int cost, int capacity) {
+		this.capacity = capacity;
+		this.foodStyles = foodStyles;
+		this.moviesGenres = moviesGenres;
+		this.musicalGenres = musicalGenres;
+	}
 	
 	//-------------------------------getters and setters----------------------
 	public ArrayList<String> getMusicalGenres() {

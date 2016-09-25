@@ -1,19 +1,39 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 
 public class HandlerEvent {
 	
 	private ArrayList<Event> events;
 	private HandlerFilter handlerFilter;
+	private User userAdmin;
+	private RepositoryEvent repositoryEvent;
 	
-	
-	public HandlerEvent(HandlerFilter hf) {
+	public HandlerEvent(HandlerFilter handlerFilter, User user) {
+		this.setRepositoryEvent(RepositoryEvent.getInstance());
 		this.events = new ArrayList<Event>();
-		this.handlerFilter = hf;
+		this.handlerFilter = handlerFilter;
+		this.userAdmin = user;
 	}
 
+	
+	public void createEvent(ArrayList<User> guests, EventType eventType ,Calendar date, Place place) {
+	   EventStandart event = new EventStandart(this.getUserAdmin(), eventType ,date, guests, place);
+	   this.getEvents().add(event);
+	   this.getRepositoryEvent().addEvents(event);
+	}
+	
+	public ArrayList<Event> suggetsEvents(int comboPosition, Calendar date){
+		return this.getHandlerFilter().suggestEvents(comboPosition, this.getUserAdmin(), date);
+	}
+	
+	public void goToEvent(Event event){
+		event.addGuest(this.getUserAdmin());
+	}
+
+	//-------------------------------getters and setters----------------------
+	
 	public ArrayList<Event> getEvents() {
 		return events;
 	}
@@ -29,16 +49,23 @@ public class HandlerEvent {
 	public void setHandlerFilter(HandlerFilter handlerFilter) {
 		this.handlerFilter = handlerFilter;
 	}
-
 	
-	public void createEvent(User owner, ArrayList<User> guests, Date date, ArrayList<Place> places) {
-	   Event event = new Event(owner, guests, date, places);
-	   this.getEvents().add(event);
+	public User getUserAdmin() {
+		return userAdmin;
 	}
-	
-	public ArrayList<Event> suggetsEvents(int comboPosition, User user, Date date, ArrayList<Event> events){
-		return this.getHandlerFilter().suggestEvents(comboPosition, user, date, events);
-		
+
+	public void setUserAdmin(User userAdmin) {
+		this.userAdmin = userAdmin;
+	}
+
+
+	public RepositoryEvent getRepositoryEvent() {
+		return repositoryEvent;
+	}
+
+
+	public void setRepositoryEvent(RepositoryEvent repositoryEvent) {
+		this.repositoryEvent = repositoryEvent;
 	}
 
 

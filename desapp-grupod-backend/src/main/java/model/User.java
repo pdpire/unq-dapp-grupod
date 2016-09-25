@@ -1,7 +1,7 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 
 public class User {
 	private FriendManager friends;
@@ -10,10 +10,29 @@ public class User {
 	private String password;
 	private String email;
 	private HandlerEvent handlerevent;
+	private User halfOrange;
+	private ArrayList<User> friendsToNextEvent;
+	
+
+	public User(String nameUser, String password, String emailUser,
+			ArrayList<MusicalGenres> musicalGenres, ArrayList<MoviesGenres> moviesGenres, ArrayList<FoodStyle> foodStyles, int amountMax) {
+		this.setFriends(new FriendManager());
+		this.setEmail(emailUser);
+		this.setPassword(password);
+		this.setName(nameUser);
+		this.setProfile(new Profile(musicalGenres, moviesGenres, foodStyles, amountMax));
+//		how to improve! 
+		this.setHandlerevent(new HandlerEvent(new HandlerFilter(), this));
+	}
 	
 	
-	public void createEvent(User owner, ArrayList<User> guests, Date date, ArrayList<Place> places) {
-		this.getHandlerevent().createEvent(owner, guests, date, places);
+	public boolean matchingProfiles(Event event) {
+		return this.getProfile().matchingProfiles(event);
+	}
+	
+	
+	public void createEvent(ArrayList<User> guests, EventType eventType , Calendar date, Place place) {
+		this.getHandlerevent().createEvent(guests, eventType, date, place);
 	}
 	
 	public void addFriend(User user){
@@ -23,9 +42,17 @@ public class User {
 	public void removeFriend(User user){
 		this.getFriends().removeFriend(user);
 	}
-	
 
 	//-------------------------------getters and setters----------------------
+	
+	public User getHalfOrange() {
+		return halfOrange;
+	}
+
+	public void setHalfOrange(User halfOrange) {
+		this.halfOrange = halfOrange;
+	}
+	
 	public FriendManager getFriends() {
 		return friends;
 	}
@@ -62,7 +89,11 @@ public class User {
 	public void setHandlerevent(HandlerEvent handlerevent) {
 		this.handlerevent = handlerevent;
 	}
-	
-	
+	public ArrayList<User> getFriendsToNextEvent() {
+		return friendsToNextEvent;
+	}
+	public void setFriendsToNextEvent(ArrayList<User> friendsToNextEvent) {
+		this.friendsToNextEvent = friendsToNextEvent;
+	}
 	
 }

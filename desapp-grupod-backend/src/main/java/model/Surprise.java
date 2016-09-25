@@ -3,19 +3,18 @@ package model;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class Economic extends Filter {
+public class Surprise extends Filter {
 
 	public ArrayList<Event> suggestEvents(User user, Calendar date) {
 		
 		ArrayList<Event> retEvents = new ArrayList<Event>();
-		for (Event event : this.getRepositoryEvent().getEvents()) {
-			if(user.getProfile().getAmountMax() >= event.getCost() && event.getState() && event.iCanAttend(user)){
+		for (Event event : this.getRepositoryEvent().getEventsActives()) {
+			if(event.iCanAttend(user) && user.matchingProfiles(event)){
 				retEvents.add(event);
 			}
 		}
 		return retEvents;
 		
 	}
-	
 
 }
