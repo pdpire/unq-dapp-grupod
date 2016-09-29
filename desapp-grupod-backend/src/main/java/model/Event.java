@@ -16,7 +16,6 @@ public abstract class Event {
 	public Event(EventType type, Calendar date, ArrayList<User> invited){
 		this.type = type;
 		this.date = date;
-		this.cost = this.calculateCost();
 		this.stateEvent = new Actived(this);
 		this.invited = invited;
 	}

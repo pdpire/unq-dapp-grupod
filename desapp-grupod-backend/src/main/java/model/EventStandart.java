@@ -18,6 +18,7 @@ public class EventStandart extends Event {
 		super(type, date, invited);
 		this.owner = owner;
 		this.place = plce;
+		this.setCost( this.calculateCost() );
 	}
 	
 	public boolean iCanAttend(User user){

@@ -4,37 +4,43 @@ import java.util.ArrayList;
 
 public class Place {
 
-	private ArrayList<String> musicalGenres;
-	private ArrayList<String> moviesGenres;
-	private ArrayList<String> foodStyles;
+	private ArrayList<MusicalGenres> musicalGenres;
+	private ArrayList<MoviesGenres> moviesGenres;
+	private ArrayList<FoodStyle> foodStyles;
 	private int cost;
 	private int capacity;
 	
-	public Place( ArrayList<String> musicalGenres, ArrayList<String> moviesGenres, ArrayList<String> foodStyles, int cost, int capacity) {
+	public Place( ArrayList<MusicalGenres> musicalGenres, ArrayList<MoviesGenres> moviesGenres, ArrayList<FoodStyle> foodStyles, int cost, int capacity) {
 		this.capacity = capacity;
 		this.foodStyles = foodStyles;
 		this.moviesGenres = moviesGenres;
 		this.musicalGenres = musicalGenres;
+		this.cost = cost;
 	}
 	
+
 	//-------------------------------getters and setters----------------------
-	public ArrayList<String> getMusicalGenres() {
-		return musicalGenres;
-	}
-	public void setMusicalGenres(ArrayList<String> musicalGenres) {
-		this.musicalGenres = musicalGenres;
-	}
-	public ArrayList<String> getMoviesGenres() {
+	
+	public ArrayList<MoviesGenres> getMoviesGenres() {
 		return moviesGenres;
 	}
-	public void setMoviesGenres(ArrayList<String> moviesGenres) {
+
+	public void setMoviesGenres(ArrayList<MoviesGenres> moviesGenres) {
 		this.moviesGenres = moviesGenres;
 	}
-	public ArrayList<String> getFoodStyles() {
+
+	public ArrayList<FoodStyle> getFoodStyles() {
 		return foodStyles;
 	}
-	public void setFoodStyles(ArrayList<String> foodStyles) {
+
+	public void setFoodStyles(ArrayList<FoodStyle> foodStyles) {
 		this.foodStyles = foodStyles;
+	}
+	public ArrayList<MusicalGenres> getMusicalGenres() {
+		return musicalGenres;
+	}
+	public void setMusicalGenres(ArrayList<MusicalGenres> musicalGenres) {
+		this.musicalGenres = musicalGenres;
 	}
 	
 	public int getCost() {

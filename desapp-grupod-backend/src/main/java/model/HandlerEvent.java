@@ -24,7 +24,7 @@ public class HandlerEvent {
 	   this.getRepositoryEvent().addEvents(event);
 	}
 	
-	public ArrayList<Event> suggetsEvents(int comboPosition, Calendar date){
+	public ArrayList<Event> suggetsEvents(int comboPosition, Calendar date) throws NoFoundTypeEventException, NoHalfOrangeException{
 		return this.getHandlerFilter().suggestEvents(comboPosition, this.getUserAdmin(), date);
 	}
 	

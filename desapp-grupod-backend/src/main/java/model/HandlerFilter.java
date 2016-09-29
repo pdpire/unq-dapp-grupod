@@ -17,7 +17,7 @@ public class HandlerFilter {
 	}
 	
 
-	public ArrayList<Event> suggestEvents(int posicionCombo, User user, Calendar date) {
+	public ArrayList<Event> suggestEvents(int posicionCombo, User user, Calendar date) throws NoFoundTypeEventException, NoHalfOrangeException {
 		if(posicionCombo == 0){
 			return this.getFilters().get(0).suggestEvents(user, date);
 		}

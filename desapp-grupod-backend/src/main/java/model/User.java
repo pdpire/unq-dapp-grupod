@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class User {
+	
 	private FriendManager friends;
 	private Profile profile;
 	private String name;
@@ -23,6 +24,7 @@ public class User {
 		this.setProfile(new Profile(musicalGenres, moviesGenres, foodStyles, amountMax));
 //		how to improve! 
 		this.setHandlerevent(new HandlerEvent(new HandlerFilter(), this));
+		this.friendsToNextEvent = new ArrayList<User>();
 	}
 	
 	

@@ -30,16 +30,21 @@ public class RepositoryEvent {
     	this.getEvents().add(event);
     }
     
-    public static ArrayList<Event> getEventsType(EventType eventType, Calendar date){
+    public static ArrayList<Event> getEventsType(EventType eventType, Calendar date) throws NoFoundTypeEventException{
 		ArrayList<Event> retEvents = new ArrayList<Event>();
 		for (Event event : RepositoryEvent.getInstance().getEvents()) {
-			if(RepositoryEvent.getInstance().verifyDayAndMonth(event, date) && event.getState() && 
+			if(
+					RepositoryEvent.getInstance().verifyDayAndMonth(event, date) && 
+					event.getState() && 
 					RepositoryEvent.getInstance().isTypeEvent(event, eventType, 00, 02)){
 				retEvents.add(event);
 			}
 		}
+		if(retEvents.isEmpty()){
+			throw new NoFoundTypeEventException();
+		}
+		
 		return retEvents;	
-    	
     }
     
     public static ArrayList<Event> getEventsActives(){
@@ -54,7 +59,8 @@ public class RepositoryEvent {
     } 
 
 	public boolean isTypeEvent(Event event, EventType type, int startHour, int endHour){
-		return (event.getType() == type && this.verifyHour(event, startHour, endHour));
+		return event.getType() == type; 
+//				&& this.verifyHour(event, startHour, endHour));
 	}
     
 	public boolean verifyDayAndMonth(Event event, Calendar date){
@@ -62,9 +68,9 @@ public class RepositoryEvent {
 	}
 
 	
-	public boolean verifyHour(Event event, int startHour, int endHour){
-		return (event.getDate().HOUR_OF_DAY >= startHour && event.getDate().HOUR_OF_DAY <= endHour);
-	}
+//	public boolean verifyHour(Event event, int startHour, int endHour){
+//		return (event.getDate().HOUR_OF_DAY >= startHour && event.getDate().HOUR_OF_DAY <= endHour);
+//	}
     
 	//-------------------------------getters and setters----------------------
     

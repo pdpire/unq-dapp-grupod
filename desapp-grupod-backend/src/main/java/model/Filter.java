@@ -13,7 +13,7 @@ public abstract class Filter {
 		this.repositoryEvent = RepositoryEvent.getInstance();
 	}
 
-	public abstract ArrayList<Event> suggestEvents(User user, Calendar date);
+	public abstract ArrayList<Event> suggestEvents(User user, Calendar date) throws NoFoundTypeEventException, NoHalfOrangeException;
 	
 //  ----------------------- getters && setters  ----------------------------
 
