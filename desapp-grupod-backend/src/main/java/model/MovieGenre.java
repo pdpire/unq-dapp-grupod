@@ -1,6 +1,6 @@
 package model;
 
-public class EventType {
+public class MovieGenre {
 	
 	private int id;
 	private String value;
@@ -18,12 +18,12 @@ public class EventType {
 		this.value = value;
 	}
 	
-	public EventType(String nm){
+	public MovieGenre(String nm){
 		this.value = nm;
 	}
 	
-	public boolean compare(EventType et){
-		return this.getValue().equals(et.getValue());
+	public boolean compare(MovieGenre mg){
+		return this.getValue().equals(mg.getValue());
 	}
 
 }

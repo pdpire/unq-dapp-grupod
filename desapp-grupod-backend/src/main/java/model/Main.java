@@ -22,12 +22,12 @@ public class Main {
 		
 		
 		
-		ArrayList<MusicalGenres> musicalGenres = new ArrayList<MusicalGenres>();
-		musicalGenres.add(MusicalGenres.CLASSICAL);
-		ArrayList<MoviesGenres> moviesGenres = new ArrayList<MoviesGenres>();
-		moviesGenres.add(MoviesGenres.ACTION);
+		ArrayList<MusicalGenre> musicalGenres = new ArrayList<MusicalGenre>();
+		musicalGenres.add(new MusicalGenre("classical"));
+		ArrayList<MovieGenre> moviesGenres = new ArrayList<MovieGenre>();
+		moviesGenres.add(new MovieGenre("action"));
 		ArrayList<FoodStyle> foodStyles = new ArrayList<FoodStyle>();
-		foodStyles.add(FoodStyle.FASTFOODS);
+		foodStyles.add(new FoodStyle("fastfood"));
 		
 		User user1 = new User("user", "passUser", "user@mail.com", musicalGenres, moviesGenres, foodStyles, 250);
 		User user2 = new User("user", "passUser", "user@mail.com", musicalGenres, moviesGenres, foodStyles, 500);
@@ -50,24 +50,26 @@ public class Main {
 		Calendar calendar2 = new GregorianCalendar(2013, 0, 30);
 		Calendar calendar3 = new GregorianCalendar(2013, 0, 31);
 		
-		EventStandart eventStandart1 = new EventStandart(user2, EventType.ENTERTAINMENT, calendar, guests, place2);
-		EventStandart eventStandart2 = new EventStandart(user2, EventType.ALLNIGHT, calendar, guests, place2);
+		EventStandart eventStandart1 = new EventStandart(user2, new EventType("entertainment"), calendar2, guests, place2);
+		EventStandart eventStandart2 = new EventStandart(user2, new EventType("food"), calendar2, guests, place2);
+		EventStandart eventStandart3 = new EventStandart(user2, new EventType("entertainment"), calendar2, guests, place2);
 		
 		RepositoryEvent re1 = RepositoryEvent.getInstance();
 		
 		re1.addEvents(eventStandart1);
 		re1.addEvents(eventStandart2);
+		re1.addEvents(eventStandart3);
 		
 //		user1.createEvent(guests, , places);
 //		SimpleDateFormat sdf = new SimpleDateFormat("yyyy MMM dd HH:mm:ss");
 
 //		System.out.println(sdf.format(calendar.getTime()));
 		
-		user1.createEvent(guests, EventType.FOOD, calendar, place1);
+//		user1.createEvent(guests, new EventType("food"), calendar2, place1);
 		
-		System.out.println(calendar2.compareTo(calendar3) <= 0);
+//		System.out.println(calendar2.compareTo(calendar2) == 0);
 		
-		System.out.println(user2.getHandlerEvent().suggetsEvents(3, calendar));
+//		System.out.println(user2.getHandlerEvent().suggetsEvents(4, calendar2));
 			
 		
 		

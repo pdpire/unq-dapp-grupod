@@ -16,7 +16,7 @@ public class User {
 	
 
 	public User(String nameUser, String password, String emailUser,
-			ArrayList<MusicalGenres> musicalGenres, ArrayList<MoviesGenres> moviesGenres, ArrayList<FoodStyle> foodStyles, int amountMax) {
+			ArrayList<MusicalGenre> musicalGenres, ArrayList<MovieGenre> moviesGenres, ArrayList<FoodStyle> foodStyles, int amountMax) {
 		this.setFriends(new FriendManager());
 		this.setEmail(emailUser);
 		this.setPassword(password);

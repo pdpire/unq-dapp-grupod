@@ -8,15 +8,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "profile")
 public class Profile {
 	
-	private ArrayList<MusicalGenres> musicalGenres;
-	private ArrayList<MoviesGenres> moviesGenres;
+	private ArrayList<MusicalGenre> musicalGenres;
+	private ArrayList<MovieGenre> moviesGenres;
 	private ArrayList<FoodStyle> foodStyles;
 	private Integer id;
 	private int amountMax;
 	
 
 
-	public Profile(ArrayList<MusicalGenres> musicalGenres, ArrayList<MoviesGenres> moviesGenres, ArrayList<FoodStyle> foodStyles, int amountMax) {
+	public Profile(ArrayList<MusicalGenre> musicalGenres, ArrayList<MovieGenre> moviesGenres, ArrayList<FoodStyle> foodStyles, int amountMax) {
 		this.setAmountMax(amountMax);
 		this.setMusicalGenres(musicalGenres);
 		this.setFoodStyles(foodStyles);
@@ -25,15 +25,15 @@ public class Profile {
 	
 	public boolean matchingProfiles(Event event) {
 		boolean flag = false;
-		if(event.getType() == EventType.ENTERTAINMENT){
-			for (MoviesGenres moviesGenres : this.getMoviesGenres()) {
+		if(event.getType().compare(new EventType("entertainment"))){
+			for (MovieGenre moviesGenres : this.getMoviesGenres()) {
 				flag = flag || this.getMoviesGenres().contains(moviesGenres);
 			}
-			for (MusicalGenres musicalGenres : this.getMusicalGenres()) {
+			for (MusicalGenre musicalGenres : this.getMusicalGenres()) {
 				flag = flag || this.getMusicalGenres().contains(musicalGenres);
 			}
 		}
-		if(event.getType() == EventType.FOOD){
+		if(event.getType().compare(new EventType("food"))){
 			for (FoodStyle foodStyle : foodStyles) {
 				flag = flag || this.getFoodStyles().contains(foodStyle);
 			}
@@ -49,20 +49,20 @@ public class Profile {
 	//-------------------------------getters and setters----------------------
 
 
-	public ArrayList<MusicalGenres> getMusicalGenres() {
+	public ArrayList<MusicalGenre> getMusicalGenres() {
 		return musicalGenres;
 	}
 
-	public void setMusicalGenres(ArrayList<MusicalGenres> musicalGenres) {
+	public void setMusicalGenres(ArrayList<MusicalGenre> musicalGenres) {
 		this.musicalGenres = musicalGenres;
 	}
 
 
-	public ArrayList<MoviesGenres> getMoviesGenres() {
+	public ArrayList<MovieGenre> getMoviesGenres() {
 		return moviesGenres;
 	}
 
-	public void setMoviesGenres(ArrayList<MoviesGenres> moviesGenres) {
+	public void setMoviesGenres(ArrayList<MovieGenre> moviesGenres) {
 		this.moviesGenres = moviesGenres;
 	}
 
