@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class Place {
 
-	private ArrayList<MusicalGenres> musicalGenres;
-	private ArrayList<MoviesGenres> moviesGenres;
+	private ArrayList<MusicalGenre> musicalGenres;
+	private ArrayList<MovieGenre> moviesGenres;
 	private ArrayList<FoodStyle> foodStyles;
 	private int cost;
 	private int capacity;
 	
-	public Place( ArrayList<MusicalGenres> musicalGenres, ArrayList<MoviesGenres> moviesGenres, ArrayList<FoodStyle> foodStyles, int cost, int capacity) {
+	public Place( ArrayList<MusicalGenre> musicalGenres, ArrayList<MovieGenre> moviesGenres, ArrayList<FoodStyle> foodStyles, int cost, int capacity) {
 		this.capacity = capacity;
 		this.foodStyles = foodStyles;
 		this.moviesGenres = moviesGenres;
@@ -21,11 +21,11 @@ public class Place {
 
 	//-------------------------------getters and setters----------------------
 	
-	public ArrayList<MoviesGenres> getMoviesGenres() {
+	public ArrayList<MovieGenre> getMoviesGenres() {
 		return moviesGenres;
 	}
 
-	public void setMoviesGenres(ArrayList<MoviesGenres> moviesGenres) {
+	public void setMoviesGenres(ArrayList<MovieGenre> moviesGenres) {
 		this.moviesGenres = moviesGenres;
 	}
 
@@ -36,10 +36,10 @@ public class Place {
 	public void setFoodStyles(ArrayList<FoodStyle> foodStyles) {
 		this.foodStyles = foodStyles;
 	}
-	public ArrayList<MusicalGenres> getMusicalGenres() {
+	public ArrayList<MusicalGenre> getMusicalGenres() {
 		return musicalGenres;
 	}
-	public void setMusicalGenres(ArrayList<MusicalGenres> musicalGenres) {
+	public void setMusicalGenres(ArrayList<MusicalGenre> musicalGenres) {
 		this.musicalGenres = musicalGenres;
 	}
 	

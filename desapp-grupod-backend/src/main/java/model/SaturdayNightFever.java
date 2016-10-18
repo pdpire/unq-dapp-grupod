@@ -20,9 +20,9 @@ public class SaturdayNightFever extends Filter {
 	public ArrayList<Event> createSuggestNightEvent(Calendar date) throws NoFoundTypeEventException{
 		ArrayList<Event> suggest = new ArrayList<Event>();
 		
-		ArrayList<Event> dinnerList     = this.getRepositoryEvent().getEventsType(EventType.FOOD, date);
-		ArrayList<Event> postDinnerList = this.getRepositoryEvent().getEventsType(EventType.ENTERTAINMENT, date);
-		ArrayList<Event> endNightList   = this.getRepositoryEvent().getEventsType(EventType.ALLNIGHT, date);
+		ArrayList<Event> dinnerList     = this.getRepositoryEvent().getEventsType(new EventType("food"), date);
+		ArrayList<Event> postDinnerList = this.getRepositoryEvent().getEventsType(new EventType("entertainment"), date);
+		ArrayList<Event> endNightList   = this.getRepositoryEvent().getEventsType(new EventType("entertainment"), date);
 		
 		Event dinner     = dinnerList.get(anyEvent(dinnerList));
 		Event postDinner = postDinnerList.get(anyEvent(postDinnerList));

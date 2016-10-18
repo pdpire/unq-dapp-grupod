@@ -12,7 +12,7 @@ public class EventAllNight extends Event {
 	private ArrayList<Event> events;
 
 	public EventAllNight(Calendar date, ArrayList<User> invited, ArrayList<Event> events) {
-		super(EventType.ALLNIGHT, date, invited);
+		super(new EventType("allnight"), date, invited);
 		this.events = events;
 		this.setCost( this.calculateCost() );
 	}

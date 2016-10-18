@@ -59,12 +59,12 @@ public class RepositoryEvent {
     } 
 
 	public boolean isTypeEvent(Event event, EventType type, int startHour, int endHour){
-		return event.getType() == type; 
+		return event.getType().compare(type); 
 //				&& this.verifyHour(event, startHour, endHour));
 	}
     
 	public boolean verifyDayAndMonth(Event event, Calendar date){
-		return event.getDate().DAY_OF_MONTH == date.DAY_OF_MONTH && event.getDate().MONTH == date.MONTH;
+		return event.getDate().compareTo(date) == 0;
 	}
 
 	
