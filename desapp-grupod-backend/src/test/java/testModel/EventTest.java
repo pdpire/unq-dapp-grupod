@@ -1,6 +1,5 @@
 package testModel;
 
-/*
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
@@ -11,7 +10,6 @@ import org.junit.Test;
 import factory.EventFactory;
 import model.Event;
 import model.Place;
-*/
 
 public class EventTest {
 	

@@ -1,9 +1,7 @@
 package factory;
 
-/*
-import model.HandlerEvent;
 import model.User;
-*/
+
 public class UserFactory {
 //
 //	public static User userWithHandlerEvent(HandlerEvent handlerEvent) {
@@ -13,5 +11,13 @@ public class UserFactory {
 //
 //		return user;
 //	}
+	
+	public static User anyUser(){
+		
+	
+		User us = new User(null, null, null, null, null, null, 0);
+		
+		return us;
+	}
 
 }
