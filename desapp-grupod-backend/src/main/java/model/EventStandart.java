@@ -3,8 +3,11 @@ package model;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import model.Place;
 
+@XmlRootElement(name = "eventstandart")
 public class EventStandart extends Event {
 	
 	private User owner;

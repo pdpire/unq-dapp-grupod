@@ -2,11 +2,16 @@ package model;
 
 import java.util.ArrayList;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+@XmlRootElement(name = "profile")
 public class Profile {
 	
 	private ArrayList<MusicalGenres> musicalGenres;
 	private ArrayList<MoviesGenres> moviesGenres;
 	private ArrayList<FoodStyle> foodStyles;
+	private Integer id;
 	private int amountMax;
 	
 
@@ -75,4 +80,13 @@ public class Profile {
 	public void setAmountMax(int amountMax) {
 		this.amountMax = amountMax;
 	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 }

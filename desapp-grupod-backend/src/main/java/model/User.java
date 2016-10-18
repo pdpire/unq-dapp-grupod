@@ -10,7 +10,7 @@ public class User {
 	private String name;
 	private String password;
 	private String email;
-	private HandlerEvent handlerevent;
+	private HandlerEvent handlerEvent;
 	private User halfOrange;
 	private ArrayList<User> friendsToNextEvent;
 	
@@ -26,15 +26,13 @@ public class User {
 		this.setHandlerevent(new HandlerEvent(new HandlerFilter(), this));
 		this.friendsToNextEvent = new ArrayList<User>();
 	}
-	
-	
+
 	public boolean matchingProfiles(Event event) {
 		return this.getProfile().matchingProfiles(event);
 	}
 	
-	
 	public void createEvent(ArrayList<User> guests, EventType eventType , Calendar date, Place place) {
-		this.getHandlerevent().createEvent(guests, eventType, date, place);
+		this.getHandlerEvent().createEvent(guests, eventType, date, place);
 	}
 	
 	public void addFriend(User user){
@@ -85,11 +83,11 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public HandlerEvent getHandlerevent() {
-		return handlerevent;
+	public HandlerEvent getHandlerEvent() {
+		return handlerEvent;
 	}
 	public void setHandlerevent(HandlerEvent handlerevent) {
-		this.handlerevent = handlerevent;
+		this.handlerEvent = handlerevent;
 	}
 	public ArrayList<User> getFriendsToNextEvent() {
 		return friendsToNextEvent;

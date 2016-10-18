@@ -1,19 +1,15 @@
 package testModel;
-
+/*
 import org.junit.Test;
-
 import factory.UserFactory;
-
 import static org.mockito.Mockito.*;
-
 import java.util.ArrayList;
 import java.util.Date;
-
 import model.FriendManager;
 import model.HandlerEvent;
 import model.Place;
 import model.User;
-
+*/
 public class UserTest{
 //	
 //	@Test

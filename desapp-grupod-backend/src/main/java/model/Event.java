@@ -3,13 +3,15 @@ package model;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "event")
 public abstract class Event {
 
 	private StateEvent stateEvent;
 	private Calendar date;
 	private int cost;
 	private EventType type;
-	private ArrayList<Enum> pleasures;
 	private ArrayList<User> invited;
 	
 	
@@ -73,12 +75,5 @@ public abstract class Event {
 		this.type = type;
 	}
 
-	public ArrayList<Enum> getPleasures() {
-		return pleasures;
-	}
-
-	public void setPleasures(ArrayList<Enum> pleasures) {
-		this.pleasures = pleasures;
-	}
 
 }

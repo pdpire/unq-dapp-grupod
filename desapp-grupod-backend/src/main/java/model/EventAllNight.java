@@ -4,7 +4,9 @@ package model;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name = "eventallnight")
 public class EventAllNight extends Event {
 	
 	private ArrayList<Event> events;
