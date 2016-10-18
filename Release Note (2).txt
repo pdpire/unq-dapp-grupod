@@ -1,0 +1,21 @@
+
+NEW FEATURES (lo que están entregando y está funcionando):
+* Primer parte del backend terminada, se implemento las siguientes funcionalidades:
+	-Estado de build en "Verde"
+	-Utiliza HSQLDB
+	-Datos "fake" para probar la aplicación
+	-Implementación de Layout de backend según la arquitectura definida
+	-Implementación del tier de Presentación como aplicación independiente (que levante)
+        -WebServices REST para ejemplo (TestMapping)
+	
+NOTES (ej: funcionalidad que falta, alguna consideración especial):
+* faltaria agregar las siguientes funciones:
+	-integrar otra API sugerida.
+	-WebServices REST para Eventos y Perfiles ya que no mappeamos el modelo por utilizar enums, se decidio pasar eso a clases con data y modificarlo 
+	-Home
+	-Page de Perfiles
+	-Modificar nombres de webServices y servicios
+    
+KNOWN ISSUES (ej: funcionalidad que saben que están funcionando diferente, algún error conocido en la funcionalidad terminada, etc) :
+* tenemos que agregar factorys en algunas clases testeadas, ya que tenemos constructores mal instanciados.
+* se hizo un ejemplo de mappeo y uso de servicio con la clase ejemplo "TestMapping" para mostrar esa funcionalidad
