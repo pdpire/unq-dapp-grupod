@@ -19,5 +19,7 @@ public class ServiceProfile extends GenericService<Profile> {
 	public void setProfileRepository(ProfileRepository profileRepository) {
 		this.profileRepository = profileRepository;
 	}
+	
+	
 
 }

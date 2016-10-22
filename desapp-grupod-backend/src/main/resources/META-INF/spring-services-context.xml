@@ -48,7 +48,7 @@
 	</bean>
 	
 	
-	<!-- beans profile 
+	<!-- beans profile -->
 	
 	<bean id="serviceProfile" class="services.ServiceProfile">
 		<property name="repository" ref="repositoryProfile" />
@@ -57,7 +57,7 @@
 	<bean id="repositoryProfile" class="persistence.ProfileRepository">
 		<property name="sessionFactory" ref="persistence.sessionFactory" />
 	</bean>
-	-->
+	
 
 
 

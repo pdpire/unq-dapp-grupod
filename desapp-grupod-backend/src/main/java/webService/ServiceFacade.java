@@ -11,6 +11,7 @@ import javax.ws.rs.Produces;
 import model.Event;
 import model.Profile;
 import model.TestMapping;
+import services.ServiceProfile;
 import services.TestMappingService;
 
 
@@ -20,34 +21,29 @@ public class ServiceFacade {
 
 	private TestMappingService serviceMapTest;
 	
-//	private ServiceProfile serviceProfile;
-
-	// private FoodStyleService foodService;
-	//
-	// public FoodStyleService getFoodService() {
-	// return foodService;
-	// }
-	//
-	// public void setFoodService(FoodStyleService foodService) {
-	// this.foodService = foodService;
-	// }
-	
-	
+	private ServiceProfile serviceProfile;
 	
 	
 	@GET
 	@Path("/getprofiles")
 	@Produces("application/json")
 	public List<Profile> getProfiles() {
-		return null;
+		return this.getServiceProfile().retriveAll();
 	}
 	
-	@GET
-	@Path("/getevents")
+	@POST
+	@Path("/addprofile/{amountMax}")
 	@Produces("application/json")
-	public Event getEvents() {
-		return null;
+	public Profile addProfile(@PathParam("amountMax") final Integer amountMax) {
+
+		Profile profile = new Profile(null, null, null, amountMax);
+		this.getServiceProfile().save(profile);
+
+		return profile;
 	}
+	
+	
+	
 	
 	@GET
 	@Path("/testmapping/{id}")
@@ -96,11 +92,11 @@ public class ServiceFacade {
 		this.serviceMapTest = serviceMapTest;
 	}
 
-//	public ServiceProfile getServiceProfile() {
-//		return serviceProfile;
-//	}
-//
-//	public void setServiceProfile(ServiceProfile serviceProfile) {
-//		this.serviceProfile = serviceProfile;
-//	}
+	public ServiceProfile getServiceProfile() {
+		return serviceProfile;
+	}
+
+	public void setServiceProfile(ServiceProfile serviceProfile) {
+		this.serviceProfile = serviceProfile;
+	}
 }

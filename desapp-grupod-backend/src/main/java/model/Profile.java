@@ -15,7 +15,6 @@ public class Profile {
 	private int amountMax;
 	
 
-
 	public Profile(ArrayList<MusicalGenre> musicalGenres, ArrayList<MovieGenre> moviesGenres, ArrayList<FoodStyle> foodStyles, int amountMax) {
 		this.setAmountMax(amountMax);
 		this.setMusicalGenres(musicalGenres);
