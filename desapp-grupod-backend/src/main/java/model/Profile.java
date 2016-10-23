@@ -40,13 +40,9 @@ public class Profile {
 		}
 		return flag;
 	}
-
-	
-	
 	
 	
 	//-------------------------------getters and setters----------------------
-
 
 	public ArrayList<MusicalGenre> getMusicalGenres() {
 		return musicalGenres;
@@ -65,13 +61,6 @@ public class Profile {
 		this.moviesGenres = moviesGenres;
 	}
 
-	public ArrayList<FoodStyle> getFoodStyles() {
-		return foodStyles;
-	}
-
-	public void setFoodStyles(ArrayList<FoodStyle> foodStyles) {
-		this.foodStyles = foodStyles;
-	}
 	
 	public int getAmountMax() {
 		return amountMax;
@@ -86,6 +75,14 @@ public class Profile {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+	public ArrayList<FoodStyle> getFoodStyles() {
+		return foodStyles;
+	}
+
+	public void setFoodStyles(ArrayList<FoodStyle> foodStyles) {
+		this.foodStyles = foodStyles;
 	}
 
 }

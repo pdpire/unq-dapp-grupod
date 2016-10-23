@@ -1,6 +1,11 @@
 package model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+@XmlRootElement(name = "foodstyle")
 public class FoodStyle {
+	
 	private int id;
 	private String value;
 	

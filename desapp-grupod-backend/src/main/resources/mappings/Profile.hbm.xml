@@ -11,18 +11,12 @@
 		<property name="amountMax" />
 		
 		<list name="foodStyles" lazy="false">
-			<key column="carID" />
-			<list-index column="id" />
-			<one-to-many class="model.FoodStyle" />
-		</list>
-		
-		<list name="foodStyles" lazy="false">
 			<key column="ID" />
 			<list-index column="id" />
 			<one-to-many class="model.FoodStyle" />
 		</list>
 		
-		<list name="movieGenres" lazy="false">
+		<list name="moviesGenres" lazy="false">
 			<key column="ID" />
 			<list-index column="id" />
 			<one-to-many class="model.MovieGenre" />

@@ -34,9 +34,7 @@
 
 	<bean id="serviceFacade" class="webService.ServiceFacade">
 		<property name="serviceMapTest" ref="serviceTest" />
-		<!-- 
 		<property name="serviceProfile" ref="serviceProfile" />
-		 -->
 	</bean>
 
 	<bean id="serviceTest" class="services.TestMappingService">
@@ -58,7 +56,4 @@
 		<property name="sessionFactory" ref="persistence.sessionFactory" />
 	</bean>
 	
-
-
-
 </beans>

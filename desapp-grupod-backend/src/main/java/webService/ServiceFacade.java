@@ -1,6 +1,7 @@
 
 package webService;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -9,6 +10,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import model.Event;
+import model.FoodStyle;
+import model.MovieGenre;
+import model.MusicalGenre;
 import model.Profile;
 import model.TestMapping;
 import services.ServiceProfile;
@@ -34,15 +38,16 @@ public class ServiceFacade {
 	@POST
 	@Path("/addprofile/{amountMax}")
 	@Produces("application/json")
-	public Profile addProfile(@PathParam("amountMax") final Integer amountMax) {
+	public Profile addProfile(@PathParam("amountMax") final int amountMax) {
+		ArrayList<MusicalGenre> musicalGenres = new ArrayList<MusicalGenre>();
+		ArrayList<MovieGenre> moviesGenres = new ArrayList<MovieGenre>();
+		ArrayList<FoodStyle> foodStyles = new ArrayList<FoodStyle>();
 
-		Profile profile = new Profile(null, null, null, amountMax);
+		Profile profile = new Profile( musicalGenres , moviesGenres, foodStyles, 1);
 		this.getServiceProfile().save(profile);
 
 		return profile;
 	}
-	
-	
 	
 	
 	@GET
