@@ -26,6 +26,9 @@ public class FoodStyle {
 		this.value = nm;
 	}
 	
+	public FoodStyle(){
+	} 
+	
 	public boolean compare(FoodStyle foodStyle){
 		return this.getValue().equals(foodStyle.getValue());
 	}

@@ -69,7 +69,7 @@ public class Main {
 		
 //		System.out.println(calendar2.compareTo(calendar2) == 0);
 		
-//		System.out.println(user2.getHandlerEvent().suggetsEvents(4, calendar2));
+		System.out.println(user2.getHandlerEvent().suggetsEvents(4, calendar2));
 			
 		
 		

@@ -22,6 +22,11 @@ public class MusicalGenre {
 		this.value = nm;
 	}
 	
+	public MusicalGenre(){
+		
+	}
+	
+	
 	public boolean compare(MusicalGenre mg){
 		return this.getValue().equals(mg.getValue());
 	}

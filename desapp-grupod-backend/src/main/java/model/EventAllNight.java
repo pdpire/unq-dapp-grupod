@@ -1,28 +1,31 @@
 package model;
 
 
-import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "eventallnight")
 public class EventAllNight extends Event {
 	
-	private ArrayList<Event> events;
+	private List<Event> events;
 
-	public EventAllNight(Calendar date, ArrayList<User> invited, ArrayList<Event> events) {
+	public EventAllNight(Calendar date, List<User> invited, List<Event> events) {
 		super(new EventType("allnight"), date, invited);
 		this.events = events;
 		this.setCost( this.calculateCost() );
 	}
 	
+	public EventAllNight() {
+	}
 	
-	public ArrayList<Event> getEvents() {
+	
+	public List<Event> getEvents() {
 		return events;
 	}
 
-	public void setEvents(ArrayList<Event> events) {
+	public void setEvents(List<Event> events) {
 		this.events = events;
 	}
 

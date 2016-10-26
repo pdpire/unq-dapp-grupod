@@ -21,6 +21,8 @@ public class MovieGenre {
 	public MovieGenre(String nm){
 		this.value = nm;
 	}
+	public MovieGenre(){
+	}
 	
 	public boolean compare(MovieGenre mg){
 		return this.getValue().equals(mg.getValue());

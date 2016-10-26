@@ -24,6 +24,9 @@ public class EventStandart extends Event {
 		this.setCost( this.calculateCost() );
 	}
 	
+	public EventStandart() {
+	}
+	
 	public boolean iCanAttend(User user){
 		return  ! (this.getOwner().equals(user) || this.getInvited().contains(user));
 	}

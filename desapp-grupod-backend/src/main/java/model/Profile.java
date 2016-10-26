@@ -19,6 +19,9 @@ public class Profile implements Serializable {
 	private Integer id;
 	private int amountMax;
 	
+	public Profile(){
+		
+	}
 
 	public Profile(List<MusicalGenre> musicalGenres, List<MovieGenre> moviesGenres, List<FoodStyle> foodStyles, int amountMax) {
 		this.amountMax = amountMax;

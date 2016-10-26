@@ -1,7 +1,7 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -12,14 +12,17 @@ public abstract class Event {
 	private Calendar date;
 	private int cost;
 	private EventType type;
-	private ArrayList<User> invited;
+	private List<User> invited;
 	
 	
-	public Event(EventType type, Calendar date, ArrayList<User> invited){
+	public Event(EventType type, Calendar date, List<User> invited){
 		this.type = type;
 		this.date = date;
 		this.stateEvent = new Actived(this);
 		this.invited = invited;
+	}
+	
+	public Event(){
 	}
 	
 	public boolean getState(){
@@ -59,11 +62,11 @@ public abstract class Event {
 		this.stateEvent = stateEvent;
 	}
 	
-	public ArrayList<User> getInvited() {
+	public List<User> getInvited() {
 		return invited;
 	}
 
-	public void setInvited(ArrayList<User> invited) {
+	public void setInvited(List<User> invited) {
 		this.invited = invited;
 	}
 
