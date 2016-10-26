@@ -1,7 +1,6 @@
  package services;
 
 import model.TestMapping;
-import persistence.TestMappingRepository;
 
 public class TestMappingService extends GenericService<TestMapping> {
 
