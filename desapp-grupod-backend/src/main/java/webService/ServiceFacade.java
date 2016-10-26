@@ -25,30 +25,30 @@ public class ServiceFacade {
 
 	private TestMappingService serviceMapTest;
 	
-	private ServiceProfile serviceProfile;
-	
-	
-	@GET
-	@Path("/getprofiles")
-	@Produces("application/json")
-	public List<Profile> getProfiles() {
-		return this.getServiceProfile().retriveAll();
-	}
-	
-	@POST
-	@Path("/addprofile/{amountMax}")
-	@Produces("application/json")
-	public Profile addProfile(@PathParam("amountMax") final int amountMax) {
-		ArrayList<MusicalGenre> musicalGenres = new ArrayList<MusicalGenre>();
-		ArrayList<MovieGenre> moviesGenres = new ArrayList<MovieGenre>();
-		ArrayList<FoodStyle> foodStyles = new ArrayList<FoodStyle>();
-
-		Profile profile = new Profile( musicalGenres , moviesGenres, foodStyles, 1);
-		this.getServiceProfile().save(profile);
-
-		return profile;
-	}
-	
+//	private ServiceProfile serviceProfile;
+//	
+//	
+//	@GET
+//	@Path("/getprofiles")
+//	@Produces("application/json")
+//	public List<Profile> getProfiles() {
+//		return this.getServiceProfile().retriveAll();
+//	}
+//	
+//	@POST
+//	@Path("/addprofile/{amountMax}")
+//	@Produces("application/json")
+//	public Profile addProfile(@PathParam("amountMax") final int amountMax) {
+//		ArrayList<MusicalGenre> musicalGenres = new ArrayList<MusicalGenre>();
+//		ArrayList<MovieGenre> moviesGenres = new ArrayList<MovieGenre>();
+//		ArrayList<FoodStyle> foodStyles = new ArrayList<FoodStyle>();
+//
+//		Profile profile = new Profile( musicalGenres , moviesGenres, foodStyles, 1);
+//		this.getServiceProfile().save(profile);
+//
+//		return profile;
+//	}
+//	
 	
 	@GET
 	@Path("/testmapping/{id}")
@@ -97,11 +97,11 @@ public class ServiceFacade {
 		this.serviceMapTest = serviceMapTest;
 	}
 
-	public ServiceProfile getServiceProfile() {
-		return serviceProfile;
-	}
-
-	public void setServiceProfile(ServiceProfile serviceProfile) {
-		this.serviceProfile = serviceProfile;
-	}
+//	public ServiceProfile getServiceProfile() {
+//		return serviceProfile;
+//	}
+//
+//	public void setServiceProfile(ServiceProfile serviceProfile) {
+//		this.serviceProfile = serviceProfile;
+//	}
 }

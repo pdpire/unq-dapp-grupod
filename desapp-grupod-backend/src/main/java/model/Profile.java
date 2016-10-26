@@ -1,25 +1,31 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
 
 @XmlRootElement(name = "profile")
-public class Profile {
+public class Profile implements Serializable {
 	
-	private ArrayList<MusicalGenre> musicalGenres;
-	private ArrayList<MovieGenre> moviesGenres;
-	private ArrayList<FoodStyle> foodStyles;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private List<MusicalGenre> musicalGenres;
+	private List<MovieGenre> moviesGenres;
+	private List<FoodStyle> foodStyles;
 	private Integer id;
 	private int amountMax;
 	
 
-	public Profile(ArrayList<MusicalGenre> musicalGenres, ArrayList<MovieGenre> moviesGenres, ArrayList<FoodStyle> foodStyles, int amountMax) {
-		this.setAmountMax(amountMax);
-		this.setMusicalGenres(musicalGenres);
-		this.setFoodStyles(foodStyles);
-		this.setMoviesGenres(moviesGenres);
+	public Profile(List<MusicalGenre> musicalGenres, List<MovieGenre> moviesGenres, List<FoodStyle> foodStyles, int amountMax) {
+		this.amountMax = amountMax;
+		this.musicalGenres = musicalGenres;
+		this.foodStyles = foodStyles;
+		this.moviesGenres = moviesGenres;
 	}
 	
 	public boolean matchingProfiles(Event event) {
@@ -44,20 +50,20 @@ public class Profile {
 	
 	//-------------------------------getters and setters----------------------
 
-	public ArrayList<MusicalGenre> getMusicalGenres() {
+	public List<MusicalGenre> getMusicalGenres() {
 		return musicalGenres;
 	}
 
-	public void setMusicalGenres(ArrayList<MusicalGenre> musicalGenres) {
+	public void setMusicalGenres(List<MusicalGenre> musicalGenres) {
 		this.musicalGenres = musicalGenres;
 	}
 
 
-	public ArrayList<MovieGenre> getMoviesGenres() {
+	public List<MovieGenre> getMoviesGenres() {
 		return moviesGenres;
 	}
 
-	public void setMoviesGenres(ArrayList<MovieGenre> moviesGenres) {
+	public void setMoviesGenres(List<MovieGenre> moviesGenres) {
 		this.moviesGenres = moviesGenres;
 	}
 
@@ -77,11 +83,11 @@ public class Profile {
 		this.id = id;
 	}
 	
-	public ArrayList<FoodStyle> getFoodStyles() {
+	public List<FoodStyle> getFoodStyles() {
 		return foodStyles;
 	}
 
-	public void setFoodStyles(ArrayList<FoodStyle> foodStyles) {
+	public void setFoodStyles(List<FoodStyle> foodStyles) {
 		this.foodStyles = foodStyles;
 	}
 

@@ -7,8 +7,12 @@ public class ProfileRepository extends HibernateGenericDAO<Profile> implements G
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -5224056470035467236L;
 
+	/**
+	 * 
+	 */
+	
 	@Override
 	protected Class<Profile> getDomainClass() {
 		// TODO Auto-generated method stub

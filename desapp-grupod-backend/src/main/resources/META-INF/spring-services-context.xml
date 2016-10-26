@@ -18,6 +18,7 @@
 	<jaxrs:server id="restContainer" address="/">
 		<jaxrs:serviceBeans>
 			<ref bean="serviceFacade" />
+			<ref bean="serviceProfileRest" />
 		</jaxrs:serviceBeans>
 		<jaxrs:extensionMappings>
 			<entry key="json" value="application/json" />
@@ -34,7 +35,6 @@
 
 	<bean id="serviceFacade" class="webService.ServiceFacade">
 		<property name="serviceMapTest" ref="serviceTest" />
-		<property name="serviceProfile" ref="serviceProfile" />
 	</bean>
 
 	<bean id="serviceTest" class="services.TestMappingService">
@@ -45,15 +45,18 @@
 		<property name="sessionFactory" ref="persistence.sessionFactory" />
 	</bean>
 	
+	<!-- beans Profile -->
 	
-	<!-- beans profile -->
-	
-	<bean id="serviceProfile" class="services.ServiceProfile">
-		<property name="repository" ref="repositoryProfile" />
+	<bean id="serviceProfileRest" class="webService.ProfileWebService">
+		<property name="serviceProfile" ref="serviceAppProfile" />
 	</bean>
 
-	<bean id="repositoryProfile" class="persistence.ProfileRepository">
-		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	<bean id="serviceAppProfile" class="services.ServiceProfile">
+		<property name="repository" ref="repositorioProfile" />
 	</bean>
+	
+
+	
+	
 	
 </beans>

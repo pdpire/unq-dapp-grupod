@@ -98,6 +98,12 @@
 		ref="persistence.sessionFactory" /> </bean> <bean id="persistence.carrepository" 
 		class="ar.edu.unq.repositories.CarRepository" > <property name="sessionFactory" 
 		ref="persistence.sessionFactory" /> </bean> -->
+			
+		
+	<bean id="repositorioProfile" class="persistence.ProfileRepository">
+		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>
+	
 
 
 </beans>
