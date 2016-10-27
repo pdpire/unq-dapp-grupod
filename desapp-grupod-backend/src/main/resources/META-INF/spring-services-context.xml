@@ -19,6 +19,7 @@
 		<jaxrs:serviceBeans>
 			<ref bean="serviceFacade" />
 			<ref bean="serviceProfileRest" />
+			<ref bean="serviceUserRest" />
 		</jaxrs:serviceBeans>
 		<jaxrs:extensionMappings>
 			<entry key="json" value="application/json" />
@@ -55,7 +56,17 @@
 		<property name="repository" ref="repositorioProfile" />
 	</bean>
 	
-
+	<!-- beans User -->
+	
+	<bean id="serviceUserRest" class="webService.UserWebService">
+		<property name="serviceUser" ref="serviceAppUser" />
+	</bean>
+	
+	<bean id="serviceAppUser" class="services.ServiceUser">
+		<property name="repository" ref="repositorioUser" />
+	</bean>
+	
+	
 	
 	
 	

@@ -1,7 +1,7 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -17,7 +17,7 @@ public class EventStandart extends Event {
 		return this.getPlace().getCost();
 	}
 	
-	public EventStandart(User owner, EventType type, Calendar date, ArrayList<User> invited, Place plce) {
+	public EventStandart(User owner, EventType type, Calendar date, List<User> invited, Place plce) {
 		super(type, date, invited);
 		this.owner = owner;
 		this.place = plce;

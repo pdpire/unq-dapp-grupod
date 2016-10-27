@@ -22,7 +22,7 @@ public class UserTest{
 		User user = UserFactory.anyUser();
 		User friend = UserFactory.anyUser();
 		
-		user.setFriends(friendManager);
+		user.setFriendsManager(friendManager);
 		
 		doNothing().when(friendManager).addFriend(friend);
 		
@@ -36,7 +36,7 @@ public class UserTest{
 		FriendManager friendManager = mock(FriendManager.class);
 		User user = UserFactory.anyUser();
 		User friend = UserFactory.anyUser();
-		user.setFriends(friendManager);
+		user.setFriendsManager(friendManager);
 		
 		doNothing().when(friendManager).removeFriend(friend);
 		

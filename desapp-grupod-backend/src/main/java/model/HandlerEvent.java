@@ -2,10 +2,11 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class HandlerEvent {
 	
-	private ArrayList<Event> events;
+	private List<Event> events;
 	private HandlerFilter handlerFilter;
 	private User userAdmin;
 	private RepositoryEvent repositoryEvent;
@@ -18,13 +19,13 @@ public class HandlerEvent {
 	}
 
 	
-	public void createEvent(ArrayList<User> guests, EventType eventType ,Calendar date, Place place) {
+	public void createEvent(List<User> guests, EventType eventType ,Calendar date, Place place) {
 	   EventStandart event = new EventStandart(this.getUserAdmin(), eventType ,date, guests, place);
 	   this.getEvents().add(event);
 	   this.getRepositoryEvent().addEvents(event);
 	}
 	
-	public ArrayList<Event> suggetsEvents(int comboPosition, Calendar date) throws NoFoundTypeEventException, NoHalfOrangeException{
+	public List<Event> suggetsEvents(int comboPosition, Calendar date) throws NoFoundTypeEventException, NoHalfOrangeException{
 		return this.getHandlerFilter().suggestEvents(comboPosition, this.getUserAdmin(), date);
 	}
 	
@@ -34,11 +35,11 @@ public class HandlerEvent {
 
 	//-------------------------------getters and setters----------------------
 	
-	public ArrayList<Event> getEvents() {
+	public List<Event> getEvents() {
 		return events;
 	}
 
-	public void setEvents(ArrayList<Event> events) {
+	public void setEvents(List<Event> events) {
 		this.events = events;
 	}
 

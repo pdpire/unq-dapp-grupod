@@ -1,46 +1,61 @@
 package model;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.Calendar;
+import java.util.List;
 
-public class User {
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "user")
+public class User implements Serializable {
 	
-	private FriendManager friends;
+	private FriendManager friendsManager;
 	private Profile profile;
 	private String name;
 	private String password;
 	private String email;
 	private HandlerEvent handlerEvent;
 	private User halfOrange;
-	private ArrayList<User> friendsToNextEvent;
+	private Integer id;
 	
+	public User(){
+		
+	}
+
 
 	public User(String nameUser, String password, String emailUser,
-			ArrayList<MusicalGenre> musicalGenres, ArrayList<MovieGenre> moviesGenres, ArrayList<FoodStyle> foodStyles, int amountMax) {
-		this.setFriends(new FriendManager());
+			List<MusicalGenre> musicalGenres, List<MovieGenre> moviesGenres, List<FoodStyle> foodStyles, int amountMax) {
+		this.friendsManager = new FriendManager();
 		this.setEmail(emailUser);
 		this.setPassword(password);
 		this.setName(nameUser);
 		this.setProfile(new Profile(musicalGenres, moviesGenres, foodStyles, amountMax));
 //		how to improve! 
-		this.setHandlerevent(new HandlerEvent(new HandlerFilter(), this));
-		this.friendsToNextEvent = new ArrayList<User>();
+		this.handlerEvent = new HandlerEvent(new HandlerFilter(), this);
+	}
+
+	public FriendManager getFriendsManager() {
+		return friendsManager;
+	}
+
+	public void setFriendsManager(FriendManager friendsManager) {
+		this.friendsManager = friendsManager;
 	}
 
 	public boolean matchingProfiles(Event event) {
 		return this.getProfile().matchingProfiles(event);
 	}
 	
-	public void createEvent(ArrayList<User> guests, EventType eventType , Calendar date, Place place) {
+	public void createEvent(List<User> guests, EventType eventType , Calendar date, Place place) {
 		this.getHandlerEvent().createEvent(guests, eventType, date, place);
 	}
 	
 	public void addFriend(User user){
-		this.getFriends().addFriend(user);
+		this.friendsManager.addFriend(user);
 	}
 	
 	public void removeFriend(User user){
-		this.getFriends().removeFriend(user);
+		this.friendsManager.removeFriend(user);
 	}
 
 	//-------------------------------getters and setters----------------------
@@ -53,12 +68,10 @@ public class User {
 		this.halfOrange = halfOrange;
 	}
 	
-	public FriendManager getFriends() {
-		return friends;
+	public List<User> getFriends() {
+		return this.friendsManager.getUsers();
 	}
-	public void setFriends(FriendManager friends) {
-		this.friends = friends;
-	}
+	
 	public Profile getProfile() {
 		return profile;
 	}
@@ -83,17 +96,21 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public HandlerEvent getHandlerEvent() {
 		return handlerEvent;
 	}
-	public void setHandlerevent(HandlerEvent handlerevent) {
-		this.handlerEvent = handlerevent;
-	}
-	public ArrayList<User> getFriendsToNextEvent() {
-		return friendsToNextEvent;
-	}
-	public void setFriendsToNextEvent(ArrayList<User> friendsToNextEvent) {
-		this.friendsToNextEvent = friendsToNextEvent;
+
+	public void setHandlerEvent(HandlerEvent handlerEvent) {
+		this.handlerEvent = handlerEvent;
 	}
 	
 }

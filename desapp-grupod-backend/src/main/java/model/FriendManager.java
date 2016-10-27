@@ -1,13 +1,15 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FriendManager {
 	
-	private ArrayList<User> users;
+	private List<User> users;
 
 	public FriendManager() {
-		this.setUsers(new ArrayList<User>());
+		this.users = new ArrayList<User>();
+		
 	}
 	
 	public void removeFriend(User friend){
@@ -22,11 +24,11 @@ public class FriendManager {
 	
 	//-------------------------------getters and setters----------------------
 	
-	public ArrayList<User> getUsers() {
+	public List<User> getUsers() {
 		return users;
 	}
 
-	public void setUsers(ArrayList<User> users) {
+	public void setUsers(List<User> users) {
 		this.users = users;
 	}
 }
