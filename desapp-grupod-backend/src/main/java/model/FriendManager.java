@@ -6,10 +6,9 @@ import java.util.List;
 public class FriendManager {
 	
 	private List<User> users;
-
+	
 	public FriendManager() {
 		this.users = new ArrayList<User>();
-		
 	}
 	
 	public void removeFriend(User friend){

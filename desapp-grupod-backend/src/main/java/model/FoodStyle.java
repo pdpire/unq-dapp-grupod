@@ -1,11 +1,17 @@
 package model;
 
+import java.io.Serializable;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 
 @XmlRootElement(name = "foodstyle")
-public class FoodStyle {
+public class FoodStyle implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String value;
 	

@@ -1,7 +1,16 @@
 package model;
 
-public class MusicalGenre {
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "musicalgenre")
+public class MusicalGenre implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String value;
 	

@@ -9,6 +9,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "user")
 public class User implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private FriendManager friendsManager;
 	private Profile profile;
 	private String name;
@@ -19,27 +23,19 @@ public class User implements Serializable {
 	private Integer id;
 	
 	public User(){
-		
 	}
 
 
 	public User(String nameUser, String password, String emailUser,
 			List<MusicalGenre> musicalGenres, List<MovieGenre> moviesGenres, List<FoodStyle> foodStyles, int amountMax) {
 		this.friendsManager = new FriendManager();
-		this.setEmail(emailUser);
-		this.setPassword(password);
-		this.setName(nameUser);
-		this.setProfile(new Profile(musicalGenres, moviesGenres, foodStyles, amountMax));
+		this.email = emailUser;
+		this.password = password;
+		this.name = nameUser;
+		this.profile = new Profile(musicalGenres, moviesGenres, foodStyles, amountMax);
+		this.halfOrange = null;
 //		how to improve! 
-		this.handlerEvent = new HandlerEvent(new HandlerFilter(), this);
-	}
-
-	public FriendManager getFriendsManager() {
-		return friendsManager;
-	}
-
-	public void setFriendsManager(FriendManager friendsManager) {
-		this.friendsManager = friendsManager;
+//		this.handlerEvent = new HandlerEvent(new HandlerFilter(), this);
 	}
 
 	public boolean matchingProfiles(Event event) {
@@ -59,6 +55,14 @@ public class User implements Serializable {
 	}
 
 	//-------------------------------getters and setters----------------------
+	
+	public FriendManager getFriendsManager() {
+		return friendsManager;
+	}
+
+	public void setFriendsManager(FriendManager friendsManager) {
+		this.friendsManager = friendsManager;
+	}
 	
 	public User getHalfOrange() {
 		return halfOrange;

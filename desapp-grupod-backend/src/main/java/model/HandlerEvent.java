@@ -11,10 +11,10 @@ public class HandlerEvent {
 	private User userAdmin;
 	private RepositoryEvent repositoryEvent;
 	
-	public HandlerEvent(HandlerFilter handlerFilter, User user) {
+	public HandlerEvent(User user) {
 		this.setRepositoryEvent(RepositoryEvent.getInstance());
 		this.events = new ArrayList<Event>();
-		this.handlerFilter = handlerFilter;
+		this.handlerFilter = new HandlerFilter();
 		this.userAdmin = user;
 	}
 

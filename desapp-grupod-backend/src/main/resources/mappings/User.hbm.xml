@@ -7,7 +7,6 @@
 		<id column="ID" name="id">
 			<generator class="native" />
 		</id>
-		<one-to-one name="profile" class="model.Profile" cascade="save-update"></one-to-one>
 		<property name="name" />
 		<property name="password" />
 		<property name="email" />

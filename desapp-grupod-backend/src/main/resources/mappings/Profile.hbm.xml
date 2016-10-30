@@ -16,7 +16,6 @@
 			<one-to-many class="model.FoodStyle" />
 		</list>
 		
-		
 		<list name="moviesGenres" lazy="false">
 			<key column="moviesID" />
 			<list-index column="id" />

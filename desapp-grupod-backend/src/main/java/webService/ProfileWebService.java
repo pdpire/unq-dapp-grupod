@@ -10,7 +10,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-import model.Event;
 import model.FoodStyle;
 import model.MovieGenre;
 import model.MusicalGenre;
@@ -55,13 +54,13 @@ public class ProfileWebService {
 	@Path("/addprofile/{amountMax}")
 	@Produces("application/json")
 	public Profile addProfile(@PathParam("amountMax") final int amountMax) {
-		ArrayList<MusicalGenre> musicalGenres = new ArrayList<MusicalGenre>();
+		List<MusicalGenre> musicalGenres = new ArrayList<MusicalGenre>();
 		MusicalGenre mg = new MusicalGenre("POP");
 		musicalGenres.add(mg);
-		ArrayList<MovieGenre> moviesGenres = new ArrayList<MovieGenre>();
+		List<MovieGenre> moviesGenres = new ArrayList<MovieGenre>();
 		MovieGenre mgenres = new MovieGenre("terror");
 		moviesGenres.add(mgenres);
-		ArrayList<FoodStyle> foodStyles = new ArrayList<FoodStyle>();
+		List<FoodStyle> foodStyles = new ArrayList<FoodStyle>();
 		FoodStyle fs = new FoodStyle("carne");
 		foodStyles.add(fs);
 
