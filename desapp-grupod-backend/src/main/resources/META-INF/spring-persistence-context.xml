@@ -65,11 +65,24 @@
 				<!-- <prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop> -->
 			</props>
 		</property>
+		
+			<!--
 		<property name="mappingLocations">
 			<list>
 				<value>classpath*:mappings/*.hbm.xml</value>
 			</list>
 		</property>
+			-->
+	
+		<property name="annotatedClasses">
+     		<list>
+       			<value>model.FoodStyle</value>
+       			<value>model.MusicalGenre</value>
+       			<value>model.MovieGenre</value>
+       			<value>model.Profile</value>
+     		</list>
+ 		</property>
+ 	
 
 	</bean>
 

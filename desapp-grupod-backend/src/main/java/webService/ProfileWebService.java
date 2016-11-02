@@ -1,7 +1,9 @@
 package webService;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -54,13 +56,13 @@ public class ProfileWebService {
 	@Path("/addprofile/{amountMax}")
 	@Produces("application/json")
 	public Profile addProfile(@PathParam("amountMax") final int amountMax) {
-		List<MusicalGenre> musicalGenres = new ArrayList<MusicalGenre>();
+		Set<MusicalGenre> musicalGenres = new HashSet<>();
 		MusicalGenre mg = new MusicalGenre("POP");
 		musicalGenres.add(mg);
-		List<MovieGenre> moviesGenres = new ArrayList<MovieGenre>();
+		Set<MovieGenre> moviesGenres = new HashSet<>();
 		MovieGenre mgenres = new MovieGenre("terror");
 		moviesGenres.add(mgenres);
-		List<FoodStyle> foodStyles = new ArrayList<FoodStyle>();
+		Set<FoodStyle> foodStyles = new HashSet<>();
 		FoodStyle fs = new FoodStyle("carne");
 		foodStyles.add(fs);
 

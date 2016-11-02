@@ -2,24 +2,26 @@ package model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "moviegenre")
-public class MovieGenre implements Serializable{
+//@XmlRootElement(name = "moviegenre")
+@Entity
+@Table(name="Movie_genre")
+public class MovieGenre extends model.Entity{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int id;
-	private String value;
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	@Column(name = "value")
+	private String value;
+
 	public String getValue() {
 		return value;
 	}

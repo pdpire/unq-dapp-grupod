@@ -1,28 +1,59 @@
 package model;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.annotations.*;
 
-@XmlRootElement(name = "profile")
-public class Profile implements Serializable {
+
+
+
+//@XmlRootElement(name = "profile")
+@Entity
+@Table(name="Profile")
+public class Profile extends model.Entity {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private List<MusicalGenre> musicalGenres;
-	private List<MovieGenre> moviesGenres;
-	private List<FoodStyle> foodStyles;
-	private Integer id;
+	
+	@OneToMany(fetch = FetchType.EAGER)
+	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
+	@JoinColumn(name = "id")
+	private Set<MusicalGenre> musicalGenres = new HashSet<>();
+	
+	@OneToMany(fetch = FetchType.EAGER)
+	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
+	@JoinColumn(name = "id")
+	private Set<MovieGenre> moviesGenres = new HashSet<>();
+	
+	@OneToMany(fetch = FetchType.EAGER)
+	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
+	@JoinColumn(name = "id")
+	private Set<FoodStyle> foodStyles = new HashSet<>();
+	
+	@Column(name = "amountMax")
 	private int amountMax;
+	
 	
 	public Profile(){
 	}
 
-	public Profile(List<MusicalGenre> musicalGenres, List<MovieGenre> moviesGenres, List<FoodStyle> foodStyles, int amountMax) {
+	public Profile(Set<MusicalGenre> musicalGenres, Set<MovieGenre> moviesGenres, Set<FoodStyle> foodStyles, int amountMax) {
 		this.amountMax = amountMax;
 		this.musicalGenres = musicalGenres;
 		this.foodStyles = foodStyles;
@@ -51,20 +82,20 @@ public class Profile implements Serializable {
 	
 	//-------------------------------getters and setters----------------------
 
-	public List<MusicalGenre> getMusicalGenres() {
+	public Set<MusicalGenre> getMusicalGenres() {
 		return musicalGenres;
 	}
 
-	public void setMusicalGenres(List<MusicalGenre> musicalGenres) {
+	public void setMusicalGenres(Set<MusicalGenre> musicalGenres) {
 		this.musicalGenres = musicalGenres;
 	}
 
 
-	public List<MovieGenre> getMoviesGenres() {
+	public Set<MovieGenre> getMoviesGenres() {
 		return moviesGenres;
 	}
 
-	public void setMoviesGenres(List<MovieGenre> moviesGenres) {
+	public void setMoviesGenres(Set<MovieGenre> moviesGenres) {
 		this.moviesGenres = moviesGenres;
 	}
 
@@ -76,19 +107,11 @@ public class Profile implements Serializable {
 		this.amountMax = amountMax;
 	}
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	
-	public List<FoodStyle> getFoodStyles() {
+	public Set<FoodStyle> getFoodStyles() {
 		return foodStyles;
 	}
 
-	public void setFoodStyles(List<FoodStyle> foodStyles) {
+	public void setFoodStyles(Set<FoodStyle> foodStyles) {
 		this.foodStyles = foodStyles;
 	}
 

@@ -1,7 +1,10 @@
 package webService;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -40,11 +43,11 @@ public class UserWebService {
 	@Path("/adduser/{name}")
 	@Produces("application/json")
 	public User addUser(@PathParam("name") final String name) {
-		List<MusicalGenre> musicalGenres = new ArrayList<MusicalGenre>();
+		Set<MusicalGenre> musicalGenres = new HashSet<>();
 		musicalGenres.add(new MusicalGenre("classical"));
-		List<MovieGenre> moviesGenres = new ArrayList<MovieGenre>();
+		Set<MovieGenre> moviesGenres = new HashSet<>();
 		moviesGenres.add(new MovieGenre("action"));
-		List<FoodStyle> foodStyles = new ArrayList<FoodStyle>();
+		Set<FoodStyle> foodStyles = new HashSet<>();
 		foodStyles.add(new FoodStyle("fastfood"));
 		
 		User user1 = new User(name, "passUser", "user@mail.com", musicalGenres, moviesGenres, foodStyles, 250);

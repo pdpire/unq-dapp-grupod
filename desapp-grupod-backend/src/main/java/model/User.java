@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Set;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -27,7 +28,7 @@ public class User implements Serializable {
 
 
 	public User(String nameUser, String password, String emailUser,
-			List<MusicalGenre> musicalGenres, List<MovieGenre> moviesGenres, List<FoodStyle> foodStyles, int amountMax) {
+			Set<MusicalGenre> musicalGenres, Set<MovieGenre> moviesGenres, Set<FoodStyle> foodStyles, int amountMax) {
 		this.friendsManager = new FriendManager();
 		this.email = emailUser;
 		this.password = password;
