@@ -35,7 +35,11 @@ public class User implements Serializable {
 		this.profile = new Profile(musicalGenres, moviesGenres, foodStyles, amountMax);
 		this.halfOrange = null;
 //		how to improve! 
-//		this.handlerEvent = new HandlerEvent(new HandlerFilter(), this);
+//		this.handlerEvent = new HandlerEvent(new HandlerFilter(), this)
+	}
+	
+	public List<User> friends() {
+		return this.friendsManager.getUsers();
 	}
 
 	public boolean matchingProfiles(Event event) {
@@ -70,10 +74,6 @@ public class User implements Serializable {
 
 	public void setHalfOrange(User halfOrange) {
 		this.halfOrange = halfOrange;
-	}
-	
-	public List<User> getFriends() {
-		return this.friendsManager.getUsers();
 	}
 	
 	public Profile getProfile() {

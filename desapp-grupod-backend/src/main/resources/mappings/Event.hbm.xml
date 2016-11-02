@@ -3,19 +3,10 @@
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-access="field"
 	default-cascade="save-update">
-	<class name="model.User">
+	<class name="model.Event">
 		<id column="ID" name="id">
 			<generator class="native" />
 		</id>
-		
-		<property name="name" />
-		<property name="password" />
-		<property name="email" />
-		 
-		 <!--
-		<one-to-one name="friendsManager" class="model.FriendManager" cascade="save-update"></one-to-one>
-		<one-to-one name="profile" class="model.Profile" cascade="save-update"></one-to-one>
-		-->
 
 	</class>
 </hibernate-mapping>

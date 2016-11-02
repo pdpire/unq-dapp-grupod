@@ -4,17 +4,25 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "handlerevent")
 public class HandlerEvent {
 	
 	private List<Event> events;
 	private HandlerFilter handlerFilter;
 	private User userAdmin;
 	private RepositoryEvent repositoryEvent;
+	private Integer id;
 	
 	public HandlerEvent(User user) {
-		this.setRepositoryEvent(RepositoryEvent.getInstance());
+//		this.setRepositoryEvent(RepositoryEvent.getInstance());
+//		this.handlerFilter = new HandlerFilter();
+//		NO MAPEADO
+		this.repositoryEvent = null;
+		this.handlerFilter = null;
 		this.events = new ArrayList<Event>();
-		this.handlerFilter = new HandlerFilter();
+//		-----	NO MAPEADO
 		this.userAdmin = user;
 	}
 
@@ -67,6 +75,16 @@ public class HandlerEvent {
 
 	public void setRepositoryEvent(RepositoryEvent repositoryEvent) {
 		this.repositoryEvent = repositoryEvent;
+	}
+
+
+	public Integer getId() {
+		return id;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 

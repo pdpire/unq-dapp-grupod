@@ -7,7 +7,7 @@ import java.util.List;
 public class WithFriends extends Filter {
 
 	public ArrayList<Event> suggestEvents(User user, Calendar date) {
-		List<User> friends = user.getFriends();
+		List<User> friends = user.friends();
 		
 		ArrayList<Event> retEvents = new ArrayList<Event>();
 		for (Event event : this.getRepositoryEvent().getEventsActives()) {

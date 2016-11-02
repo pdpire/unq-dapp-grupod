@@ -13,6 +13,7 @@ public abstract class Event {
 	private int cost;
 	private EventType type;
 	private List<User> invited;
+	private Integer id;
 	
 	
 	public Event(EventType type, Calendar date, List<User> invited){
@@ -76,6 +77,14 @@ public abstract class Event {
 
 	public void setType(EventType type) {
 		this.type = type;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 
