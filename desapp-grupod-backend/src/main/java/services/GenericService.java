@@ -12,37 +12,37 @@ public class GenericService<T> implements Serializable {
 
     private GenericRepository<T> repository;
 
-    public GenericRepository<T> getRepository() {
-        return this.repository;
-    }
-
-    public void setRepository(final GenericRepository<T> repository) {
-        this.repository = repository;
-    }
+//    public GenericRepository<T> getRepository() {
+//        return this.repository;
+//    }
+//
+//    public void setRepository(final GenericRepository<T> repository) {
+//        this.repository = repository;
+//    }
 
     @Transactional
     public void delete(final T object) {
-        this.getRepository().delete(object);
+        this.repository.delete(object);
     }
 
     @Transactional(readOnly = true)
     public List<T> retriveAll() {
-        return this.getRepository().findAll();
+        return this.repository.findAll();
     }
 
     @Transactional
     public void save(final T object) {
-        this.getRepository().save(object);
+        this.repository.save(object);
     }
 
     @Transactional
     public void update(final T object) {
-        this.getRepository().update(object);
+        this.repository.update(object);
     }
     
 	@Transactional
 	public T getId(final Integer id) {
-		return this.getRepository().findById(id);
+		return this.repository.findById(id);
 	}
 
 }
