@@ -1,27 +1,56 @@
 package model;
 
-import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Set;
 
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
-@XmlRootElement(name = "user")
-public class User implements Serializable {
+//@XmlRootElement(name = "user")
+@Entity
+@Table(name="User")
+public class User extends model.Entity{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	@OneToOne(fetch = FetchType.EAGER)
+	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
+	@JoinColumn(name = "id_friendmanager")
 	private FriendManager friendsManager;
+	
+	@OneToOne(fetch = FetchType.EAGER)
+	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
+	@JoinColumn(name = "id_profile")
 	private Profile profile;
+	
+	@Column(name = "name")
 	private String name;
+	
+	@Column(name = "password")
 	private String password;
+	
+	@Column(name = "email")
 	private String email;
-	private HandlerEvent handlerEvent;
+	
+	@OneToOne(fetch = FetchType.EAGER)
+	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
+	@JoinColumn(name = "id_halforange")
 	private User halfOrange;
-	private Integer id;
+	
+	@OneToOne(fetch = FetchType.EAGER)
+	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
+	@JoinColumn(name = "id_handlerEvent")	
+	private HandlerEvent handlerEvent;
 	
 	public User(){
 	}
@@ -34,12 +63,14 @@ public class User implements Serializable {
 		this.password = password;
 		this.name = nameUser;
 		this.profile = new Profile(musicalGenres, moviesGenres, foodStyles, amountMax);
-		this.halfOrange = null;
+		this.halfOrange = new User();
 //		how to improve! 
-//		this.handlerEvent = new HandlerEvent(new HandlerFilter(), this)
+		
+		this.handlerEvent = new HandlerEvent(this);
 	}
 	
-	public List<User> friends() {
+	
+	public Set<User> friends() {
 		return this.friendsManager.getUsers();
 	}
 
@@ -61,13 +92,17 @@ public class User implements Serializable {
 
 	//-------------------------------getters and setters----------------------
 	
-	public FriendManager getFriendsManager() {
-		return friendsManager;
+	
+	
+	public HandlerEvent getHandlerEvent() {
+		return handlerEvent;
 	}
 
-	public void setFriendsManager(FriendManager friendsManager) {
-		this.friendsManager = friendsManager;
+	public void setHandlerEvent(HandlerEvent handlerEvent) {
+		this.handlerEvent = handlerEvent;
 	}
+	
+	
 	
 	public User getHalfOrange() {
 		return halfOrange;
@@ -75,6 +110,14 @@ public class User implements Serializable {
 
 	public void setHalfOrange(User halfOrange) {
 		this.halfOrange = halfOrange;
+	}
+	
+	public FriendManager getFriendsManager() {
+		return friendsManager;
+	}
+
+	public void setFriendsManager(FriendManager friendsManager) {
+		this.friendsManager = friendsManager;
 	}
 	
 	public Profile getProfile() {
@@ -102,20 +145,6 @@ public class User implements Serializable {
 		this.email = email;
 	}
 	
-	public Integer getId() {
-		return id;
-	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public HandlerEvent getHandlerEvent() {
-		return handlerEvent;
-	}
-
-	public void setHandlerEvent(HandlerEvent handlerEvent) {
-		this.handlerEvent = handlerEvent;
-	}
 	
 }

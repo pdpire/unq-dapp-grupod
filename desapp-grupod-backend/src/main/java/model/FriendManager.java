@@ -1,23 +1,34 @@
 package model;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
-@XmlRootElement(name = "friendmanager")
-public class FriendManager implements Serializable{
+//@XmlRootElement(name = "friendmanager")
+@Entity
+@Table(name="FriendManager")
+public class FriendManager extends model.Entity{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private List<User> users;
-	private Integer id;
+	
+	@OneToMany(fetch = FetchType.EAGER)
+	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
+	@JoinColumn(name = "id_user")
+	private Set<User> users = new HashSet<>();
 	
 	public FriendManager() {
-		this.users = new ArrayList<User>();
+		this.users = new HashSet<>();
 	}
 	
 	public void removeFriend(User friend){
@@ -32,19 +43,12 @@ public class FriendManager implements Serializable{
 	
 	//-------------------------------getters and setters----------------------
 	
-	public List<User> getUsers() {
+	public Set<User> getUsers() {
 		return users;
 	}
 
-	public void setUsers(List<User> users) {
+	public void setUsers(Set<User> users) {
 		this.users = users;
 	}
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 }

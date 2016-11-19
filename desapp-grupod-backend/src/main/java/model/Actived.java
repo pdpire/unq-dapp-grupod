@@ -1,5 +1,11 @@
 package model;
 
+import javax.persistence.Entity;
+
+import org.hibernate.annotations.ForeignKey;
+
+@Entity
+@ForeignKey(name = "fk_Actived")
 public class Actived extends StateEvent {
 
 	public Actived(Event event) {

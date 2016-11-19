@@ -2,27 +2,56 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "handlerevent")
-public class HandlerEvent {
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
+//@XmlRootElement(name = "handlerevent")
+@Entity
+@Table(name="User")
+public class HandlerEvent extends model.Entity{
 	
-	private List<Event> events;
-	private HandlerFilter handlerFilter;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+
+	
+	@OneToOne(fetch = FetchType.EAGER)
+	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
+	@JoinColumn(name = "userAdmin")
 	private User userAdmin;
-	private RepositoryEvent repositoryEvent;
-	private Integer id;
+	
+	
+	@OneToMany(fetch = FetchType.EAGER)
+	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
+	@JoinColumn(name = "id_events")
+	private Set<Event> events = new HashSet<>();
+	
+//	private HandlerFilter handlerFilter;
+//	private RepositoryEvent repositoryEvent;
+	
+	
+	public HandlerEvent() {
+	}
 	
 	public HandlerEvent(User user) {
 //		this.setRepositoryEvent(RepositoryEvent.getInstance());
 //		this.handlerFilter = new HandlerFilter();
-//		NO MAPEADO
-		this.repositoryEvent = null;
-		this.handlerFilter = null;
-		this.events = new ArrayList<Event>();
 //		-----	NO MAPEADO
+		this.events = new HashSet<>();
 		this.userAdmin = user;
 	}
 
@@ -33,7 +62,7 @@ public class HandlerEvent {
 	   this.getRepositoryEvent().addEvents(event);
 	}
 	
-	public List<Event> suggetsEvents(int comboPosition, Calendar date) throws NoFoundTypeEventException, NoHalfOrangeException{
+	public Set<Event> suggetsEvents(int comboPosition, Calendar date) throws NoFoundTypeEventException, NoHalfOrangeException{
 		return this.getHandlerFilter().suggestEvents(comboPosition, this.getUserAdmin(), date);
 	}
 	
@@ -43,12 +72,33 @@ public class HandlerEvent {
 
 	//-------------------------------getters and setters----------------------
 	
-	public List<Event> getEvents() {
+
+	
+//	public User getUserAdmin() {
+//		return userAdmin;
+//	}
+//
+//	public void setUserAdmin(User userAdmin) {
+//		this.userAdmin = userAdmin;
+//	}
+	
+ 	public Set<Event> getEvents() {
 		return events;
 	}
 
-	public void setEvents(List<Event> events) {
+	public void setEvents(Set<Event> events) {
 		this.events = events;
+	} 
+	
+/*
+
+ 
+	public RepositoryEvent getRepositoryEvent() {
+		return repositoryEvent;
+	}
+
+	public void setRepositoryEvent(RepositoryEvent repositoryEvent) {
+		this.repositoryEvent = repositoryEvent;
 	}
 
 	public HandlerFilter getHandlerFilter() {
@@ -58,34 +108,6 @@ public class HandlerEvent {
 	public void setHandlerFilter(HandlerFilter handlerFilter) {
 		this.handlerFilter = handlerFilter;
 	}
-	
-	public User getUserAdmin() {
-		return userAdmin;
-	}
-
-	public void setUserAdmin(User userAdmin) {
-		this.userAdmin = userAdmin;
-	}
-
-
-	public RepositoryEvent getRepositoryEvent() {
-		return repositoryEvent;
-	}
-
-
-	public void setRepositoryEvent(RepositoryEvent repositoryEvent) {
-		this.repositoryEvent = repositoryEvent;
-	}
-
-
-	public Integer getId() {
-		return id;
-	}
-
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
+*/
 
 }

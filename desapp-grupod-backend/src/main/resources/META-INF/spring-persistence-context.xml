@@ -80,6 +80,18 @@
        			<value>model.MusicalGenre</value>
        			<value>model.MovieGenre</value>
        			<value>model.Profile</value>
+       			<value>model.User</value>
+       			<value>model.FriendManager</value>
+       			<value>model.HandlerEvent</value>
+       			<value>model.Event</value>
+       			<value>model.EventType</value>
+       			<value>model.EventStandart</value>
+       			<value>model.EventStandart</value>
+       			<value>model.Place</value>
+       			<value>model.StateEvent</value>
+       			<value>model.Actived</value>
+       			<value>model.Canceled</value>
+       			<value>model.Finished</value>
      		</list>
  		</property>
  	

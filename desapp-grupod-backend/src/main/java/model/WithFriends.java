@@ -3,11 +3,12 @@ package model;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Set;
 
 public class WithFriends extends Filter {
 
 	public ArrayList<Event> suggestEvents(User user, Calendar date) {
-		List<User> friends = user.friends();
+		Set<User> friends = user.friends();
 		
 		ArrayList<Event> retEvents = new ArrayList<Event>();
 		for (Event event : this.getRepositoryEvent().getEventsActives()) {
@@ -18,7 +19,7 @@ public class WithFriends extends Filter {
 		return retEvents;
 	}
 	
-	public boolean matchingInvites(Event event, List<User> invited){
+	public boolean matchingInvites(Event event, Set<User> invited){
 		boolean ret = false;
 		for (User user : invited) {
 			if(user.matchingProfiles(event)){

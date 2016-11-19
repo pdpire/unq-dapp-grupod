@@ -12,13 +12,13 @@ public class GenericService<T> implements Serializable {
 
     private GenericRepository<T> repository;
 
-//    public GenericRepository<T> getRepository() {
-//        return this.repository;
-//    }
-//
-//    public void setRepository(final GenericRepository<T> repository) {
-//        this.repository = repository;
-//    }
+    public GenericRepository<T> getRepository() {
+        return this.repository;
+    }
+
+    public void setRepository(final GenericRepository<T> repository) {
+        this.repository = repository;
+    }
 
     @Transactional
     public void delete(final T object) {

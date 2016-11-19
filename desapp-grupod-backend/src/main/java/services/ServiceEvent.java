@@ -1,8 +1,8 @@
 package services;
 
-import model.Profile;
+import model.Event;
 
-public class ServiceProfile extends GenericService<Profile> {
+public class ServiceEvent extends GenericService<Event> {
 	
 
 	/**
@@ -10,5 +10,7 @@ public class ServiceProfile extends GenericService<Profile> {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	
 
 }
+

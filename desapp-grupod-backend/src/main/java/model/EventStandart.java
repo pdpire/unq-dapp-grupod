@@ -1,23 +1,41 @@
 package model;
 
 import java.util.Calendar;
-import java.util.List;
+import java.util.Set;
 
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
-import model.Place;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.ForeignKey;
 
-@XmlRootElement(name = "eventstandart")
+@Entity
+@ForeignKey(name = "fk_EventStandart")
 public class EventStandart extends Event {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@OneToOne(fetch = FetchType.EAGER)
+	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
+	@JoinColumn(name = "id_owner")
 	private User owner;
+	
+	@OneToOne(fetch = FetchType.EAGER)
+	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
+	@JoinColumn(name = "id_place")
 	private Place place;
 	
 	public int calculateCost() {
 		return this.getPlace().getCost();
 	}
 	
-	public EventStandart(User owner, EventType type, Calendar date, List<User> invited, Place plce) {
+	public EventStandart(User owner, EventType type, Calendar date, Set<User> invited, Place plce) {
 		super(type, date, invited);
 		this.owner = owner;
 		this.place = plce;

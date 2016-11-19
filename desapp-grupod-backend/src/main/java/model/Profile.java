@@ -1,21 +1,14 @@
 package model;
 
-import java.io.Serializable;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
-
 import org.hibernate.annotations.*;
 
 
@@ -33,17 +26,17 @@ public class Profile extends model.Entity {
 	
 	@OneToMany(fetch = FetchType.EAGER)
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "id_profile_musicalGenres")
 	private Set<MusicalGenre> musicalGenres = new HashSet<>();
 	
 	@OneToMany(fetch = FetchType.EAGER)
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "id_profile_moviesGenres")
 	private Set<MovieGenre> moviesGenres = new HashSet<>();
 	
 	@OneToMany(fetch = FetchType.EAGER)
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "id_profile_foodStyles")
 	private Set<FoodStyle> foodStyles = new HashSet<>();
 	
 	@Column(name = "amountMax")

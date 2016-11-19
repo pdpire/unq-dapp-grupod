@@ -26,19 +26,21 @@ public class ServiceTest {
 
 			int cont = 0;
 
-			for (Annotation annotation : annot) {
+			if (annot.length > 0) {
 
-				if (annotation.annotationType().getSimpleName().equals("Transactional"))
-					cont++;
+				for (Annotation annotation : annot) {
 
+					if (annotation.annotationType().getSimpleName().equals("Transactional"))
+						cont++;
+
+				}
+
+				retFinal = cont > 0;
 			}
-
-			retFinal = cont > 0;
 
 		}
 
 		assertTrue(retFinal);
 	}
-	
 
 }

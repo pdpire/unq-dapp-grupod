@@ -1,7 +1,18 @@
 package model;
 
+import javax.persistence.Entity;
+
+import org.hibernate.annotations.ForeignKey;
+
+@Entity
+@ForeignKey(name = "fk_Finished")
 public class Finished extends StateEvent {
 	
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public Finished(Event event) {
 		super(event);

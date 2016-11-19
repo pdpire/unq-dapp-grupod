@@ -2,16 +2,31 @@ package model;
 
 
 import java.util.Calendar;
-import java.util.List;
+import java.util.Set;
 
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import javax.persistence.Entity;
+import org.hibernate.annotations.ForeignKey;
 
-@XmlRootElement(name = "eventallnight")
+@Entity
+@ForeignKey(name = "fk_EventStandart")
 public class EventAllNight extends Event {
 	
-	private List<Event> events;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@OneToMany(fetch = FetchType.EAGER)
+	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
+	@JoinColumn(name = "id_ean_events")
+	private Set<Event> events;
 
-	public EventAllNight(Calendar date, List<User> invited, List<Event> events) {
+	public EventAllNight(Calendar date, Set<User> invited, Set<Event> events) {
 		super(new EventType("allnight"), date, invited);
 		this.events = events;
 		this.setCost( this.calculateCost() );
@@ -21,11 +36,11 @@ public class EventAllNight extends Event {
 	}
 	
 	
-	public List<Event> getEvents() {
+	public Set<Event> getEvents() {
 		return events;
 	}
 
-	public void setEvents(List<Event> events) {
+	public void setEvents(Set<Event> events) {
 		this.events = events;
 	}
 

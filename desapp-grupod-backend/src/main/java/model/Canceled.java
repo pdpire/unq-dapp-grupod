@@ -1,7 +1,18 @@
 package model;
 
+import javax.persistence.Entity;
+
+import org.hibernate.annotations.ForeignKey;
+
+@Entity
+@ForeignKey(name = "fk_Canceled")
 public class Canceled extends StateEvent {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public Canceled(Event event){
 		super(event);
 	}
