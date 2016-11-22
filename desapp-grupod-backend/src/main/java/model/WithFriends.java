@@ -1,16 +1,15 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
 
 public class WithFriends extends Filter {
 
-	public ArrayList<Event> suggestEvents(User user, Calendar date) {
+	public Set<Event> suggestEvents(User user, Calendar date) {
 		Set<User> friends = user.friends();
 		
-		ArrayList<Event> retEvents = new ArrayList<Event>();
+		Set<Event> retEvents = new HashSet<Event>();
 		for (Event event : this.getRepositoryEvent().getEventsActives()) {
 			if(event.iCanAttend(user) && user.matchingProfiles(event) && this.matchingInvites(event, friends)){
 				retEvents.add(event);

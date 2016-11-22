@@ -14,7 +14,7 @@ import org.hibernate.annotations.CascadeType;
 
 //@XmlRootElement(name = "event")
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+//@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name="Event")
 public abstract class Event extends model.Entity{
 
@@ -54,7 +54,6 @@ public abstract class Event extends model.Entity{
 		
 		this.date = date;
 		this.invited = invited;
-		this.invited = new HashSet<>();
 	}
 	
 	public Event(){

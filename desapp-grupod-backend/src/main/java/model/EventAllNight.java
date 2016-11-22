@@ -13,7 +13,7 @@ import javax.persistence.Entity;
 import org.hibernate.annotations.ForeignKey;
 
 @Entity
-@ForeignKey(name = "fk_EventStandart")
+//@ForeignKey(name = "fk_EventStandart")
 public class EventAllNight extends Event {
 	
 	/**
@@ -24,9 +24,9 @@ public class EventAllNight extends Event {
 	@OneToMany(fetch = FetchType.EAGER)
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
 	@JoinColumn(name = "id_ean_events")
-	private Set<Event> events;
+	private Set<EventStandart> events;
 
-	public EventAllNight(Calendar date, Set<User> invited, Set<Event> events) {
+	public EventAllNight(Calendar date, Set<User> invited, Set<EventStandart> events) {
 		super(new EventType("allnight"), date, invited);
 		this.events = events;
 		this.setCost( this.calculateCost() );
@@ -36,11 +36,11 @@ public class EventAllNight extends Event {
 	}
 	
 	
-	public Set<Event> getEvents() {
+	public Set<EventStandart> getEvents() {
 		return events;
 	}
 
-	public void setEvents(Set<Event> events) {
+	public void setEvents(Set<EventStandart> events) {
 		this.events = events;
 	}
 

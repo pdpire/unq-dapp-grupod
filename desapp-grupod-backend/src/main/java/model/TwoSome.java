@@ -1,12 +1,13 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Set;
 
 public class TwoSome extends Filter {
 
-	public ArrayList<Event> suggestEvents(User user, Calendar date) throws NoHalfOrangeException {
-		ArrayList<Event> retEvents = new ArrayList<Event>();
+	public Set<Event> suggestEvents(User user, Calendar date) throws NoHalfOrangeException {
+		Set<Event> retEvents = new HashSet<Event>();
 		try {
 			User userHalfOrange = user.getHalfOrange();
 			for (Event event : this.getRepositoryEvent().getEventsActives()) {

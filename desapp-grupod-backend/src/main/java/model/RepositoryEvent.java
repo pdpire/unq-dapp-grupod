@@ -2,15 +2,17 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Set;
 
 public class RepositoryEvent {
 	
     private static RepositoryEvent INSTANCE = null;
-    private ArrayList<Event> events;
+    private Set<Event> events;
 
     // Private constructor suppresses 
     private RepositoryEvent(){
-    	this.events = new ArrayList<Event>();
+    	this.events = new HashSet<Event>();
     }
 
     // creador sincronizado para protegerse de posibles problemas  multi-hilo
@@ -30,12 +32,12 @@ public class RepositoryEvent {
     	this.getEvents().add(event);
     }
     
-    public static ArrayList<Event> getEventsType(EventType eventType, Calendar date) throws NoFoundTypeEventException{
-		ArrayList<Event> retEvents = new ArrayList<Event>();
-		for (Event event : RepositoryEvent.getInstance().getEvents()) {
+    public static Set<EventStandart> getEventsType(EventType eventType, Calendar date) throws NoFoundTypeEventException{
+    	HashSet<EventStandart> retEvents = new HashSet<EventStandart>();
+		for (EventStandart event : RepositoryEvent.getInstance().getEventsStandart()) {
 			if(
 					RepositoryEvent.getInstance().verifyDayAndMonth(event, date) && 
-					event.getState() && 
+					event.getState() &&
 					RepositoryEvent.getInstance().isTypeEvent(event, eventType, 00, 02)){
 				retEvents.add(event);
 			}
@@ -57,6 +59,16 @@ public class RepositoryEvent {
 		return retEvents;	
     	
     } 
+    
+    public ArrayList<EventStandart> getEventsStandart(){
+    	ArrayList<EventStandart> retEvents = new ArrayList<EventStandart>();
+		for (Event event : RepositoryEvent.getInstance().getEvents()) {
+			if(event.getType().getValue() != "allnight"){
+				retEvents.add((EventStandart) event);
+			}
+		}
+		return retEvents;	
+    }
 
 	public boolean isTypeEvent(Event event, EventType type, int startHour, int endHour){
 		return event.getType().compare(type); 
@@ -74,11 +86,11 @@ public class RepositoryEvent {
     
 	//-------------------------------getters and setters----------------------
     
-	public ArrayList<Event> getEvents() {
+	public Set<Event> getEvents() {
 		return events;
 	}
 
-	public void setEvents(ArrayList<Event> events) {
+	public void setEvents(Set<Event> events) {
 		this.events = events;
 	}
 

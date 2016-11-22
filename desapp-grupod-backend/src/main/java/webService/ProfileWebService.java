@@ -70,28 +70,14 @@ public class ProfileWebService {
 		return profile;
 	}
 
-	
 	@POST
-	@Path("/addmoviegenre/{id}/{value}")
+	@Path("/updateprofilejson/")
+	@Consumes("application/json")
 	@Produces("application/json")
-	public Profile addMovieGenreProfile(@PathParam("id") final int id, @PathParam("value") final String value) {
-		MovieGenre mg = new MovieGenre(value);
-		Profile profile = this.getProfile(id);
-		profile.getMoviesGenres().add(mg);
+	public Profile updateProfilejson(final Profile profile) {
 		this.getServiceProfile().update(profile);
 		return profile;
-	}
-	
-	@POST
-	@Path("/musicalgenre/{id}/{value}")
-	@Produces("application/json")
-	public Profile addMusicalGenreProfile(@PathParam("id") final int id, @PathParam("value") final String value) {
-		MusicalGenre mg = new MusicalGenre(value);
-		Profile profile = this.getProfile(id);
-		profile.getMusicalGenres().add(mg);
-		this.getServiceProfile().update(profile);
-		return profile;
-	}
+	}	
 	
 	@POST
 	@Path("/addprofile/{amountMax}")
@@ -115,7 +101,44 @@ public class ProfileWebService {
 		return profile;
 	}
 	
+	@POST
+	@Path("/addmoviegenre/{id}/{value}")
+	@Produces("application/json")
+	public Profile addMovieGenreProfile(@PathParam("id") final int id, @PathParam("value") final String value) {
+		MovieGenre mg = new MovieGenre(value);
+		Profile profile = this.getProfile(id);
+		profile.getMoviesGenres().add(mg);
+		this.getServiceProfile().update(profile);
+		return profile;
+	}
 	
-
+	@POST
+	@Path("/musicalgenre/{id}/{value}")
+	@Produces("application/json")
+	public Profile addMusicalGenreProfile(@PathParam("id") final int id, @PathParam("value") final String value) {
+		MusicalGenre mg = new MusicalGenre(value);
+		Profile profile = this.getProfile(id);
+		profile.getMusicalGenres().add(mg);
+		this.getServiceProfile().update(profile);
+		return profile;
+	}
+	
+	
+	/*
+ 	@POST
+	@Path("/addmoviegenre/{id}/{value}")
+	@Produces("application/json")
+	public Response addMovieGenreProfile(@PathParam("id") final int id, @PathParam("value") final String value) {
+		try{
+			MovieGenre mg = new MovieGenre(value);
+			Profile profile = this.getProfile(id);
+			profile.getMoviesGenres().add(mg);
+			this.getServiceProfile().update(profile);
+		} catch (Exception e) {
+			return Response.status(Response.Status.NOT_FOUND).build();
+		}
+		return Response.ok("SUCESS").build();
+	}
+	 */
+	
 }
-

@@ -20,6 +20,7 @@
 			<!-- <ref bean="serviceFacade" />  -->
 			<ref bean="serviceProfileRest" />
 			<ref bean="serviceUserRest" />
+			<ref bean="serviceEventRest" />
 		</jaxrs:serviceBeans>
 		<jaxrs:extensionMappings>
 			<entry key="json" value="application/json" />
@@ -66,8 +67,15 @@
 		<property name="repository" ref="repositorioUser" />
 	</bean>
 	
+	<!-- beans Event -->
 	
+	<bean id="serviceEventRest" class="webService.EventWebService">
+		<property name="serviceEvent" ref="serviceAppEvent" />
+	</bean>
 	
+	<bean id="serviceAppEvent" class="services.ServiceEvent">
+		<property name="repository" ref="repositorioEvent" />
+	</bean>
 	
 	
 </beans>

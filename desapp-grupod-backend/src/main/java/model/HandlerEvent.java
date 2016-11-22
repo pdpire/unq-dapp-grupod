@@ -1,6 +1,5 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.List;
@@ -17,9 +16,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
-//@XmlRootElement(name = "handlerevent")
-@Entity
-@Table(name="User")
 public class HandlerEvent extends model.Entity{
 	
 	/**
@@ -29,34 +25,27 @@ public class HandlerEvent extends model.Entity{
 	
 
 	
-	@OneToOne(fetch = FetchType.EAGER)
-	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
-	@JoinColumn(name = "userAdmin")
 	private User userAdmin;
 	
 	
-	@OneToMany(fetch = FetchType.EAGER)
-	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
-	@JoinColumn(name = "id_events")
 	private Set<Event> events = new HashSet<>();
-	
-//	private HandlerFilter handlerFilter;
-//	private RepositoryEvent repositoryEvent;
+	private HandlerFilter handlerFilter;
+	private RepositoryEvent repositoryEvent;
 	
 	
 	public HandlerEvent() {
 	}
 	
 	public HandlerEvent(User user) {
-//		this.setRepositoryEvent(RepositoryEvent.getInstance());
-//		this.handlerFilter = new HandlerFilter();
+		this.setRepositoryEvent(RepositoryEvent.getInstance());
+		this.handlerFilter = new HandlerFilter();
 //		-----	NO MAPEADO
 		this.events = new HashSet<>();
 		this.userAdmin = user;
 	}
 
 	
-	public void createEvent(List<User> guests, EventType eventType ,Calendar date, Place place) {
+	public void createEvent(Set<User> guests, EventType eventType ,Calendar date, Place place) {
 	   EventStandart event = new EventStandart(this.getUserAdmin(), eventType ,date, guests, place);
 	   this.getEvents().add(event);
 	   this.getRepositoryEvent().addEvents(event);
@@ -74,13 +63,13 @@ public class HandlerEvent extends model.Entity{
 	
 
 	
-//	public User getUserAdmin() {
-//		return userAdmin;
-//	}
-//
-//	public void setUserAdmin(User userAdmin) {
-//		this.userAdmin = userAdmin;
-//	}
+	public User getUserAdmin() {
+		return userAdmin;
+	}
+
+	public void setUserAdmin(User userAdmin) {
+		this.userAdmin = userAdmin;
+	}
 	
  	public Set<Event> getEvents() {
 		return events;
@@ -90,9 +79,6 @@ public class HandlerEvent extends model.Entity{
 		this.events = events;
 	} 
 	
-/*
-
- 
 	public RepositoryEvent getRepositoryEvent() {
 		return repositoryEvent;
 	}
@@ -108,6 +94,6 @@ public class HandlerEvent extends model.Entity{
 	public void setHandlerFilter(HandlerFilter handlerFilter) {
 		this.handlerFilter = handlerFilter;
 	}
-*/
+
 
 }

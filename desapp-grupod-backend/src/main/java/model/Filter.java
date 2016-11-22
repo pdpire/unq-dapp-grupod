@@ -1,8 +1,8 @@
 package model;
 
 
-import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Set;
 
 
 public abstract class Filter {
@@ -13,7 +13,7 @@ public abstract class Filter {
 		this.repositoryEvent = RepositoryEvent.getInstance();
 	}
 
-	public abstract ArrayList<Event> suggestEvents(User user, Calendar date) throws NoFoundTypeEventException, NoHalfOrangeException;
+	public abstract Set<Event> suggestEvents(User user, Calendar date) throws NoFoundTypeEventException, NoHalfOrangeException;
 	
 //  ----------------------- getters && setters  ----------------------------
 

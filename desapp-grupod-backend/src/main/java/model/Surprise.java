@@ -1,13 +1,14 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Surprise extends Filter {
 
-	public ArrayList<Event> suggestEvents(User user, Calendar date) {
+	public Set<Event> suggestEvents(User user, Calendar date) {
 		
-		ArrayList<Event> retEvents = new ArrayList<Event>();
+		Set<Event> retEvents = new HashSet<Event>();
 		for (Event event : this.getRepositoryEvent().getEventsActives()) {
 			if(event.iCanAttend(user) && user.matchingProfiles(event)){
 				retEvents.add(event);

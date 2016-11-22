@@ -13,6 +13,10 @@ public class EventType extends model.Entity{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	public EventType(){
+		
+	}
+	
 	@Column(name = "value")
 	private String value;
 	

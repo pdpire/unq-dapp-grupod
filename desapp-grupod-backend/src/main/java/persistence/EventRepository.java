@@ -1,9 +1,8 @@
 package persistence;
 
-import model.User;
+import model.Event;
 
-public class UserRepository extends HibernateGenericDAO<User> implements GenericRepository<User>{
-	
+public class EventRepository extends HibernateGenericDAO<Event> implements GenericRepository<Event>{
 
 	/**
 	 * 
@@ -15,10 +14,9 @@ public class UserRepository extends HibernateGenericDAO<User> implements Generic
 	 */
 	
 	@Override
-	protected Class<User> getDomainClass() {
+	protected Class<Event> getDomainClass() {
 		// TODO Auto-generated method stub
-		return User.class;
+		return Event.class;
 	}
-
 
 }

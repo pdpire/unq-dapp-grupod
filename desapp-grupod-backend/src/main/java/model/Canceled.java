@@ -16,6 +16,10 @@ public class Canceled extends StateEvent {
 	public Canceled(Event event){
 		super(event);
 	}
+	
+	public Canceled(){
+		super();
+	}
 
 	public void terminateEvent() {
 

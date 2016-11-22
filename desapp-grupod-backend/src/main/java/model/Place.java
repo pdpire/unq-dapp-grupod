@@ -1,6 +1,5 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -51,6 +50,10 @@ public class Place extends model.Entity {
 		this.moviesGenres = moviesGenres;
 		this.musicalGenres = musicalGenres;
 		this.cost = cost;
+	}
+	
+	public Place(){
+		
 	}
 	
 

@@ -1,13 +1,15 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Set;
 
 public class HandlerFilter {
-	private ArrayList<Filter> filters;
+	
+	private Set<Filter> filters;
 	
 	public HandlerFilter() {
-		ArrayList<Filter> filterSuggested = new ArrayList<Filter>();
+		Set<Filter> filterSuggested = new HashSet<Filter>();
 		filterSuggested.add(new Economic());
 		filterSuggested.add(new TwoSome());
 		filterSuggested.add(new Surprise());
@@ -17,7 +19,8 @@ public class HandlerFilter {
 	}
 	
 
-	public ArrayList<Event> suggestEvents(int posicionCombo, User user, Calendar date) throws NoFoundTypeEventException, NoHalfOrangeException {
+	public Set<Event> suggestEvents(int posicionCombo, User user, Calendar date) throws NoFoundTypeEventException, NoHalfOrangeException {
+		/*
 		if(posicionCombo == 0){
 			return this.getFilters().get(0).suggestEvents(user, date);
 		}
@@ -33,16 +36,18 @@ public class HandlerFilter {
 		if(posicionCombo == 4){
 			return this.getFilters().get(4).suggestEvents(user, date);
 		}
+		
+		*/
 		return null;
 	}
 	
 	
-	public ArrayList<Filter> getFilters() {
+	public Set<Filter> getFilters() {
 		return filters;
 	}
 
 
-	public void setFilters(ArrayList<Filter> filters) {
+	public void setFilters(Set<Filter> filters) {
 		this.filters = filters;
 	}
 

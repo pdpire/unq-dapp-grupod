@@ -82,7 +82,6 @@
        			<value>model.Profile</value>
        			<value>model.User</value>
        			<value>model.FriendManager</value>
-       			<value>model.HandlerEvent</value>
        			<value>model.Event</value>
        			<value>model.EventType</value>
        			<value>model.EventStandart</value>
@@ -130,6 +129,10 @@
 	</bean>
 	
 	<bean id="repositorioUser" class="persistence.UserRepository">
+		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>
+	
+	<bean id="repositorioEvent" class="persistence.EventRepository">
 		<property name="sessionFactory" ref="persistence.sessionFactory" />
 	</bean>
 	

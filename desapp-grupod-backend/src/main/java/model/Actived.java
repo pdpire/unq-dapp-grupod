@@ -11,6 +11,10 @@ public class Actived extends StateEvent {
 	public Actived(Event event) {
 		super(event);
 	}
+	
+	public Actived(){
+		super();
+	}
 
 	public void terminateEvent() {
 		

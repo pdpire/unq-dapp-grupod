@@ -47,9 +47,9 @@ public class User extends model.Entity{
 	@JoinColumn(name = "id_halforange")
 	private User halfOrange;
 	
-	@OneToOne(fetch = FetchType.EAGER)
-	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
-	@JoinColumn(name = "id_handlerEvent")	
+//	@OneToOne(fetch = FetchType.EAGER)
+//	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
+//	@JoinColumn(name = "id_handlerEvent")	
 	private HandlerEvent handlerEvent;
 	
 	public User(){
@@ -78,7 +78,7 @@ public class User extends model.Entity{
 		return this.getProfile().matchingProfiles(event);
 	}
 	
-	public void createEvent(List<User> guests, EventType eventType , Calendar date, Place place) {
+	public void createEvent(Set<User> guests, EventType eventType , Calendar date, Place place) {
 		this.getHandlerEvent().createEvent(guests, eventType, date, place);
 	}
 	
