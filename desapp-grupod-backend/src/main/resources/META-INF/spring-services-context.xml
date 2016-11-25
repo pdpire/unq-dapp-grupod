@@ -17,10 +17,10 @@
 
 	<jaxrs:server id="restContainer" address="/">
 		<jaxrs:serviceBeans>
-			<!-- <ref bean="serviceFacade" />  -->
 			<ref bean="serviceProfileRest" />
 			<ref bean="serviceUserRest" />
 			<ref bean="serviceEventRest" />
+			<ref bean="initBuilderService" />
 		</jaxrs:serviceBeans>
 		<jaxrs:extensionMappings>
 			<entry key="json" value="application/json" />
@@ -77,5 +77,11 @@
 		<property name="repository" ref="repositorioEvent" />
 	</bean>
 	
+	
+	<!--  initializer service  -->
+	
+	<bean id="initBuilderService" class="builders.InitBuilder">
+		<property name="serviceEvent" ref="serviceAppEvent" /> 
+	</bean> 
 	
 </beans>
