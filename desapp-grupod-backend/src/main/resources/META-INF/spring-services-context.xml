@@ -84,4 +84,19 @@
 		<property name="serviceEvent" ref="serviceAppEvent" /> 
 	</bean> 
 	
+	
+	
+	<!-- BEANS DE ASPECOS LOGGING 
+	<bean name="aopLogging" class="aspects.LoggingWithAspect" />
+	<aop:config>
+		<aop:aspect ref="aopLogging">
+			<aop:pointcut id="pointcut" expression="execution(* 
+		webservice.*.*(..))" />
+			<aop:around method="tiempoPasado" pointcut-ref="pointcut" />
+		</aop:aspect>
+	</aop:config>
+	
+	-->
+
+	
 </beans>
