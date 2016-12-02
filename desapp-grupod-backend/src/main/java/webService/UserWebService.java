@@ -11,7 +11,10 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
 
+import dto.EventDTO;
+import dto.UserDTO;
 import model.FoodStyle;
 import model.MovieGenre;
 import model.MusicalGenre;
@@ -35,14 +38,15 @@ public class UserWebService {
 	@GET
 	@Path("/getusers")
 	@Produces("application/json")
-	public List<User> getUsers() {
-		return this.getServiceUser().retriveAll();
+	public Set<UserDTO> getUsers() {
+		return new UserDTO().copyOnList(this.getServiceUser().retriveAll());
 	}
 	
 	@POST
 	@Path("/adduser/{name}")
 	@Produces("application/json")
-	public User addUser(@PathParam("name") final String name) {
+	public Response addUser(@PathParam("name") final String name) {
+		
 		Set<MusicalGenre> musicalGenres = new HashSet<>();
 		musicalGenres.add(new MusicalGenre("classical"));
 		Set<MovieGenre> moviesGenres = new HashSet<>();
@@ -52,8 +56,11 @@ public class UserWebService {
 		
 		User user1 = new User(name, "passUser", "user@mail.com", musicalGenres, moviesGenres, foodStyles, 250);
 		this.getServiceUser().save(user1);
+		
+		Response resp = Response.status(Response.Status.OK).entity("OK").build();
+		 
+		 return resp;
 
-		return user1;
 	}
 	
 	@DELETE

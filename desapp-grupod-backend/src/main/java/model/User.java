@@ -62,11 +62,11 @@ public class User extends model.Entity{
 		this.email = emailUser;
 		this.password = password;
 		this.name = nameUser;
-		this.profile = new Profile(musicalGenres, moviesGenres, foodStyles, amountMax);
-		this.halfOrange = new User();
+//		this.profile = new Profile(musicalGenres, moviesGenres, foodStyles, amountMax);
+//		this.halfOrange = new User();
 //		how to improve! 
 		
-		this.handlerEvent = new HandlerEvent(this);
+//		this.handlerEvent = new HandlerEvent(this);
 	}
 	
 	
