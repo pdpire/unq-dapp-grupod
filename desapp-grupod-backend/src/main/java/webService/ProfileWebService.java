@@ -12,6 +12,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
 
 import model.FoodStyle;
 import model.MovieGenre;
@@ -65,20 +66,29 @@ public class ProfileWebService {
 	@Path("/addprofilejson/")
 	@Consumes("application/json")
 	@Produces("application/json")
-	public Profile addProfilejson(final Profile profile) {
-		this.getServiceProfile().save(profile);
-		return profile;
+	public Response addProfilejson(final Profile profile) {
+		try{
+			this.getServiceProfile().save(profile);
+			return Response.ok(profile).build();
+		} catch (Exception e) {
+			return Response.status(Response.Status.NOT_IMPLEMENTED).build();
+		}
 	}
 
 	@POST
 	@Path("/updateprofilejson/")
 	@Consumes("application/json")
 	@Produces("application/json")
-	public Profile updateProfilejson(final Profile profile) {
-		this.getServiceProfile().update(profile);
-		return profile;
+	public Response updateProfilejson(final Profile profile) {
+		try{
+			this.getServiceProfile().update(profile);
+			return Response.ok(profile).build();
+		} catch (Exception e) {
+			return Response.status(Response.Status.NOT_IMPLEMENTED).build();
+		}
 	}	
-	
+
+	/*
 	@POST
 	@Path("/addprofile/{amountMax}")
 	@Produces("application/json")
@@ -100,6 +110,7 @@ public class ProfileWebService {
 
 		return profile;
 	}
+	*/
 	
 	@POST
 	@Path("/addmoviegenre/{id}/{value}")

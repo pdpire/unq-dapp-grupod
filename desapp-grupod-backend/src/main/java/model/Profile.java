@@ -42,15 +42,18 @@ public class Profile extends model.Entity {
 	@Column(name = "amountMax")
 	private int amountMax;
 	
+	@Column(name = "nameUser")
+	private String nameUser;
 	
 	public Profile(){
 	}
 
-	public Profile(Set<MusicalGenre> musicalGenres, Set<MovieGenre> moviesGenres, Set<FoodStyle> foodStyles, int amountMax) {
+	public Profile(Set<MusicalGenre> musicalGenres, Set<MovieGenre> moviesGenres, Set<FoodStyle> foodStyles, String name ,int amountMax) {
 		this.amountMax = amountMax;
 		this.musicalGenres = musicalGenres;
 		this.foodStyles = foodStyles;
 		this.moviesGenres = moviesGenres;
+		this.nameUser = name;
 	}
 	
 	public boolean matchingProfiles(Event event) {
@@ -72,8 +75,15 @@ public class Profile extends model.Entity {
 		return flag;
 	}
 	
-	
 	//-------------------------------getters and setters----------------------
+	
+	public String getNameUser() {
+		return nameUser;
+	}
+
+	public void setNameUser(String nameUser) {
+		this.nameUser = nameUser;
+	}
 
 	public Set<MusicalGenre> getMusicalGenres() {
 		return musicalGenres;
@@ -91,7 +101,6 @@ public class Profile extends model.Entity {
 	public void setMoviesGenres(Set<MovieGenre> moviesGenres) {
 		this.moviesGenres = moviesGenres;
 	}
-
 	
 	public int getAmountMax() {
 		return amountMax;

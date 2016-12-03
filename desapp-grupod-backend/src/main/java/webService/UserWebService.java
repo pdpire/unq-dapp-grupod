@@ -58,8 +58,8 @@ public class UserWebService {
 		this.getServiceUser().save(user1);
 		
 		Response resp = Response.status(Response.Status.OK).entity("OK").build();
-		 
-		 return resp;
+		
+		return resp;
 
 	}
 	

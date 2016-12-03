@@ -78,10 +78,24 @@ public class EventWebService {
 
 		this.getServiceEvent().save(event);
 
-		 Response resp = Response.status(Response.Status.OK).entity("OK").build();
+		Response resp = Response.status(Response.Status.OK).entity("OK").build();
 		 
-		 return resp;
+		return resp;
 
+	}
+	
+	@POST
+	@Path("/attend")
+	@Produces("application/json")
+	public Response attend() {
+		
+		Event event = this.getServiceEvent().getId(1);
+		
+		event.addGuest(new User());
+		
+		this.getServiceEvent().update(event);
+		
+		return Response.status(Response.Status.OK).entity("OK").build();
 	}
 
 }
