@@ -45,15 +45,19 @@ public class Profile extends model.Entity {
 	@Column(name = "nameUser")
 	private String nameUser;
 	
+	@Column(name = "email")
+	private String email;
+	
 	public Profile(){
 	}
 
-	public Profile(Set<MusicalGenre> musicalGenres, Set<MovieGenre> moviesGenres, Set<FoodStyle> foodStyles, String name ,int amountMax) {
+	public Profile(Set<MusicalGenre> musicalGenres, Set<MovieGenre> moviesGenres, Set<FoodStyle> foodStyles, String name ,int amountMax , String email) {
 		this.amountMax = amountMax;
 		this.musicalGenres = musicalGenres;
 		this.foodStyles = foodStyles;
 		this.moviesGenres = moviesGenres;
 		this.nameUser = name;
+		this.email = email;
 	}
 	
 	public boolean matchingProfiles(Event event) {
@@ -76,6 +80,14 @@ public class Profile extends model.Entity {
 	}
 	
 	//-------------------------------getters and setters----------------------
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	
 	public String getNameUser() {
 		return nameUser;

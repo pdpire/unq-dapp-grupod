@@ -43,18 +43,14 @@ public class UserWebService {
 	}
 	
 	@POST
-	@Path("/adduser/{name}")
+	@Path("/adduser/{email}/{name}")
 	@Produces("application/json")
-	public Response addUser(@PathParam("name") final String name) {
+	public Response addUser(@PathParam("email") final String email, @PathParam("name") final String name) {
 		
 		Set<MusicalGenre> musicalGenres = new HashSet<>();
-		musicalGenres.add(new MusicalGenre("classical"));
 		Set<MovieGenre> moviesGenres = new HashSet<>();
-		moviesGenres.add(new MovieGenre("action"));
 		Set<FoodStyle> foodStyles = new HashSet<>();
-		foodStyles.add(new FoodStyle("fastfood"));
-		
-		User user1 = new User(name, "passUser", "user@mail.com", musicalGenres, moviesGenres, foodStyles, 250);
+		User user1 = new User(name, "", email, musicalGenres, moviesGenres, foodStyles, 0);
 		this.getServiceUser().save(user1);
 		
 		Response resp = Response.status(Response.Status.OK).entity("OK").build();

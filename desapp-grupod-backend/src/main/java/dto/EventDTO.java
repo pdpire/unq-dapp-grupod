@@ -25,8 +25,19 @@ public class EventDTO implements Serializable{
 	private int invited;
 	private Calendar date;
 	private String stateEvent;
+	private Set<User> listInvited;
 	
 	
+	public Set<User> getListInvited() {
+		return listInvited;
+	}
+
+
+	public void setListInvited(Set<User> listInvited) {
+		this.listInvited = listInvited;
+	}
+
+
 	public int getCost() {
 		return cost;
 	}
@@ -81,6 +92,7 @@ public class EventDTO implements Serializable{
 		this.date = event.getDate();
 		this.stateEvent = event.getStateEvent().getClass().getSimpleName();
 		this.type = event.getType().getValue();
+		this.listInvited = event.getInvited();
 		
 		return this;
 

@@ -54,6 +54,24 @@ public class ProfileWebService {
 		return this.getServiceProfile().retriveAll();
 	}
 	
+	
+	@GET
+	@Path("/getprofilesbyemail/{email}")
+	@Produces("application/json")
+	public Profile getProfilesByEmail(@PathParam("email") final String email) {
+		Profile profile = null;
+		
+		for (Profile p : this.getServiceProfile().retriveAll()) {
+			if(p.getEmail().equals(email)){
+				profile = p;
+				
+			}
+		}
+		
+		return profile;
+	}
+	
+	
 	@GET
 	@Path("/getprofile/{id}")
 	@Produces("application/json")
