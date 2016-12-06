@@ -14620,3 +14620,29 @@ Caused by: java.lang.NullPointerException
 2016-12-05 21:12:41 INFO  LoggingWithAspect:45 - --------------------- Parameters -------------------------------
 2016-12-05 21:12:41 INFO  LoggingWithAspect:32 - ***************  End: getEvents *************** 
 2016-12-05 21:12:41 INFO  LoggingWithAspect:34 - *************** Total time  milliseconds : 86 *************** 
+2016-12-06 11:53:14 INFO  ContextLoader:285 - Root WebApplicationContext: initialization started
+2016-12-06 11:53:14 INFO  XmlWebApplicationContext:510 - Refreshing Root WebApplicationContext: startup date [Tue Dec 06 11:53:14 ART 2016]; root of context hierarchy
+2016-12-06 11:53:14 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:/C:/Users/ppire/Documents/tp/unq-dapp-grupod/desapp-grupod-backend/target/classes/META-INF/spring-persistence-context.xml]
+2016-12-06 11:53:15 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:/C:/Users/ppire/Documents/tp/unq-dapp-grupod/desapp-grupod-backend/target/classes/META-INF/spring-services-context.xml]
+2016-12-06 11:53:15 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+2016-12-06 11:53:15 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+2016-12-06 11:53:15 INFO  PropertyPlaceholderConfigurer:172 - Loading properties file from URL [file:/C:/Users/ppire/Documents/tp/unq-dapp-grupod/desapp-grupod-backend/target/classes/META-INF/hibernate.properties]
+2016-12-06 11:53:15 INFO  PropertyPlaceholderConfigurer:172 - Loading properties file from URL [file:/C:/Users/ppire/Documents/tp/unq-dapp-grupod/desapp-grupod-backend/target/classes/META-INF/jdbc.properties]
+2016-12-06 11:53:16 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2016-12-06 11:53:16 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2016-12-06 11:53:16 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2016-12-06 11:53:16 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2016-12-06 11:53:16 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-12-06 11:53:16 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-12-06 11:53:16 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2016-12-06 11:53:17 INFO  PojoInstantiator:85 - HHH000182: No default (no-argument) constructor for class: model.Finished (class must be instantiated by Interceptor)
+2016-12-06 11:53:22 INFO  Reflections:229 - Reflections took 86 ms to scan 1 urls, producing 12 keys and 55 values 
+2016-12-06 11:53:22 INFO  Reflections:229 - Reflections took 14 ms to scan 1 urls, producing 4 keys and 13 values 
+2016-12-06 11:53:22 INFO  Reflections:229 - Reflections took 9 ms to scan 1 urls, producing 1 keys and 4 values 
+2016-12-06 11:53:22 INFO  Reflections:229 - Reflections took 8 ms to scan 1 urls, producing 1 keys and 2 values 
+2016-12-06 11:53:22 INFO  Reflections:229 - Reflections took 7 ms to scan 1 urls, producing 0 keys and 0 values 
+2016-12-06 13:16:55 INFO  Reflections:229 - Reflections took 65 ms to scan 1 urls, producing 12 keys and 55 values 
+2016-12-06 13:16:55 INFO  Reflections:229 - Reflections took 15 ms to scan 1 urls, producing 4 keys and 13 values 
+2016-12-06 13:16:55 INFO  Reflections:229 - Reflections took 9 ms to scan 1 urls, producing 1 keys and 4 values 
+2016-12-06 13:16:55 INFO  Reflections:229 - Reflections took 7 ms to scan 1 urls, producing 1 keys and 2 values 
+2016-12-06 13:16:55 INFO  Reflections:229 - Reflections took 5 ms to scan 1 urls, producing 0 keys and 0 values 

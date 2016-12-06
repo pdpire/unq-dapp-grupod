@@ -31,8 +31,8 @@ public class EventType extends model.Entity{
 		this.value = nm;
 	}
 	
-	public boolean compare(EventType et){
-		return this.getValue().equals(et.getValue());
+	public boolean compare(String et){
+		return this.getValue().equals(et);
 	}
 
 }

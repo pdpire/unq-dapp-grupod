@@ -11,7 +11,7 @@ public class RepositoryEvent {
     private Set<Event> events;
 
     // Private constructor suppresses 
-    private RepositoryEvent(){
+    public RepositoryEvent(){
     	this.events = new HashSet<Event>();
     }
 
@@ -71,7 +71,7 @@ public class RepositoryEvent {
     }
 
 	public boolean isTypeEvent(Event event, EventType type, int startHour, int endHour){
-		return event.getType().compare(type); 
+		return event.getType().compare(type.getValue()); 
 //				&& this.verifyHour(event, startHour, endHour));
 	}
     

@@ -62,7 +62,7 @@ public class Profile extends model.Entity {
 	
 	public boolean matchingProfiles(Event event) {
 		boolean flag = false;
-		if(event.getType().compare(new EventType("entertainment"))){
+		if(event.getType().compare("entertainment")){
 			for (MovieGenre moviesGenres : this.getMoviesGenres()) {
 				flag = flag || this.getMoviesGenres().contains(moviesGenres);
 			}
@@ -70,7 +70,7 @@ public class Profile extends model.Entity {
 				flag = flag || this.getMusicalGenres().contains(musicalGenres);
 			}
 		}
-		if(event.getType().compare(new EventType("food"))){
+		if(event.getType().compare("food")){
 			for (FoodStyle foodStyle : foodStyles) {
 				flag = flag || this.getFoodStyles().contains(foodStyle);
 			}
