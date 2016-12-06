@@ -26,6 +26,18 @@ public abstract class Event extends model.Entity{
 	@Column(name = "cost")
 	private int cost;
 	
+	@Column(name = "description")
+	private String description;
+	
+	
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	@OneToMany(fetch = FetchType.EAGER)
 	@Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
 	@JoinColumn(name = "id_invited")
@@ -51,7 +63,7 @@ public abstract class Event extends model.Entity{
 	public Event(EventType type, Calendar date, Set<User> invited){
 		this.type = type;
 		this.stateEvent = new Actived(this);
-		
+		this.description = "";
 		this.date = date;
 		this.invited = invited;
 	}

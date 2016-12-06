@@ -68,7 +68,11 @@ public class InitBuilder {
 
 		Event event1 = new EventStandart(us1, et1, d1, invs, p1);
 		
+		event1.setDescription("Festival de Cine Independiente");
+		
 		Event event2 = new EventStandart(us2, et2, d1, invs, p2);
+		
+		event2.setDescription("Expo Luthiers Argentinos");
 
 		this.getServiceEvent().save(event1);
 		

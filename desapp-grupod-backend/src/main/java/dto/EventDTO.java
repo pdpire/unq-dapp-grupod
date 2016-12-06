@@ -26,6 +26,7 @@ public class EventDTO implements Serializable{
 	private Calendar date;
 	private String stateEvent;
 	private Set<User> listInvited;
+	private String description;
 	
 	
 	public Set<User> getListInvited() {
@@ -93,6 +94,7 @@ public class EventDTO implements Serializable{
 		this.stateEvent = event.getStateEvent().getClass().getSimpleName();
 		this.type = event.getType().getValue();
 		this.listInvited = event.getInvited();
+		this.description = event.getDescription();
 		
 		return this;
 
@@ -118,6 +120,16 @@ public class EventDTO implements Serializable{
 
 	public void setInvited(int invited) {
 		this.invited = invited;
+	}
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 

@@ -1,8 +1,6 @@
 package webService;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.ws.rs.DELETE;
@@ -13,12 +11,10 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
-import dto.EventDTO;
 import dto.UserDTO;
 import model.FoodStyle;
 import model.MovieGenre;
 import model.MusicalGenre;
-import model.Profile;
 import model.User;
 import services.ServiceUser;
 
@@ -46,17 +42,24 @@ public class UserWebService {
 	@Path("/adduser/{email}/{name}")
 	@Produces("application/json")
 	public Response addUser(@PathParam("email") final String email, @PathParam("name") final String name) {
+		Set<UserDTO> usersDtos = this.getUsers();
+		boolean f = true;
 		
-		Set<MusicalGenre> musicalGenres = new HashSet<>();
-		Set<MovieGenre> moviesGenres = new HashSet<>();
-		Set<FoodStyle> foodStyles = new HashSet<>();
-		User user1 = new User(name, "", email, musicalGenres, moviesGenres, foodStyles, 0);
-		this.getServiceUser().save(user1);
-		
-		Response resp = Response.status(Response.Status.OK).entity("OK").build();
-		
-		return resp;
-
+		for (UserDTO userDTO : usersDtos) {
+			if(userDTO.getEmail().equals(email)){
+				f = false;
+			}
+		}
+		if(f){
+			Set<MusicalGenre> musicalGenres = new HashSet<>();
+			Set<MovieGenre> moviesGenres = new HashSet<>();
+			Set<FoodStyle> foodStyles = new HashSet<>();
+			User user1 = new User(name, "", email, musicalGenres, moviesGenres, foodStyles, 0);
+			this.getServiceUser().save(user1);
+			return Response.status(Response.Status.OK).entity("OK").build();
+		}else{
+			return Response.status(Response.Status.OK).entity("Usuario creado").build();
+		}
 	}
 	
 	@DELETE
