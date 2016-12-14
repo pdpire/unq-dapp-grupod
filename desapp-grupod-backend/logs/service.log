@@ -71,3 +71,4 @@ ms     %     Task name
 2016-12-13 23:04:58 INFO  Reflections:229 - Reflections took 115 ms to scan 1 urls, producing 1 keys and 4 values 
 2016-12-13 23:04:58 INFO  Reflections:229 - Reflections took 98 ms to scan 1 urls, producing 1 keys and 2 values 
 2016-12-13 23:04:58 INFO  Reflections:229 - Reflections took 55 ms to scan 1 urls, producing 0 keys and 0 values 
+2016-12-13 23:16:13 INFO  Reflections:229 - Reflections took 374 ms to scan 1 urls, producing 2 keys and 6 values 
