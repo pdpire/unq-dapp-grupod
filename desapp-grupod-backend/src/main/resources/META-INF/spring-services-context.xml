@@ -95,7 +95,7 @@
 		<aop:aspect ref="aopLogging">
 			<aop:pointcut id="pointcut" expression="execution(* 
 		webService.*.*(..))" />
-			<aop:around method="tiempoPasado" pointcut-ref="pointcut" />
+			<aop:around method="timeMethod" pointcut-ref="pointcut" />
 		</aop:aspect>
 	</aop:config>
 	
