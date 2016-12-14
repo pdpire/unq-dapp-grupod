@@ -203,3 +203,13 @@ ms     %     Task name
 -----------------------------------------
 00184  100%  execution(EventWebService.addEvent(..))
 -parameters: food ,
+2016-12-14 09:51:57 INFO  Reflections:229 - Reflections took 65 ms to scan 1 urls, producing 2 keys and 6 values 
+2016-12-14 09:52:19 INFO  Reflections:229 - Reflections took 54 ms to scan 1 urls, producing 2 keys and 6 values 
+2016-12-14 09:52:57 INFO  Reflections:229 - Reflections took 78 ms to scan 1 urls, producing 2 keys and 6 values 
+2016-12-14 09:53:30 INFO  Reflections:229 - Reflections took 81 ms to scan 1 urls, producing 2 keys and 6 values 
+2016-12-14 09:55:52 INFO  Reflections:229 - Reflections took 190 ms to scan 1 urls, producing 2 keys and 6 values 
+2016-12-14 10:01:37 INFO  Reflections:229 - Reflections took 76 ms to scan 1 urls, producing 2 keys and 6 values 
+2016-12-14 10:01:55 INFO  Reflections:229 - Reflections took 86 ms to scan 1 urls, producing 2 keys and 6 values 
+2016-12-14 10:02:15 INFO  Reflections:229 - Reflections took 68 ms to scan 1 urls, producing 2 keys and 6 values 
+2016-12-14 10:02:22 INFO  Reflections:229 - Reflections took 69 ms to scan 1 urls, producing 2 keys and 6 values 
+2016-12-14 10:02:35 INFO  Reflections:229 - Reflections took 47 ms to scan 1 urls, producing 2 keys and 6 values 

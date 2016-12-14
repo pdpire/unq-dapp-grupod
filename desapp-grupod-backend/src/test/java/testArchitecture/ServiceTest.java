@@ -26,7 +26,7 @@ public class ServiceTest {
 
 		Object[] clases = this.getAllClassForPackage("services", GenericService.class);
 
-		boolean retFinal = true;
+		//boolean retFinal = true;
 
 		for (Object element : clases) {
 
@@ -48,8 +48,13 @@ public class ServiceTest {
 			}
 
 			retSubClasses = this.checkTransactional(clase);
+			
+			if(!retSubClasses)
+				break;
 
 		}
+		
+		
 
 		assertTrue(retSuperClass && retSubClasses);
 
@@ -67,7 +72,7 @@ public class ServiceTest {
 			if (method.getName() != "getRepository" && method.getName() != "setRepository") {
 
 				Annotation[] annot = method.getAnnotations();
-				int cont = 0;
+ 				int cont = 0;
 
 				// if (annot.length > 0) {
 
