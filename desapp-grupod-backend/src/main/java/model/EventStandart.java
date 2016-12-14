@@ -7,15 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
-import org.hibernate.annotations.ForeignKey;
 
 @Entity
-//@Table(name="EventStandart")
-//@ForeignKey(name = "fk_EventStandart")
 public class EventStandart extends Event {
 	
 	/**

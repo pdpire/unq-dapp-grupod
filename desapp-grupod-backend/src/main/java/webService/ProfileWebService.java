@@ -1,10 +1,6 @@
 package webService;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -14,7 +10,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
-import model.FoodStyle;
 import model.MovieGenre;
 import model.MusicalGenre;
 import model.Profile;
@@ -106,29 +101,6 @@ public class ProfileWebService {
 		}
 	}	
 
-	/*
-	@POST
-	@Path("/addprofile/{amountMax}")
-	@Produces("application/json")
-	public Profile addProfile(@PathParam("amountMax") final int amountMax) {
-		Set<MusicalGenre> musicalGenres = new HashSet<>();
-		MusicalGenre mg = new MusicalGenre("POP");
-		musicalGenres.add(mg);
-		Set<MovieGenre> moviesGenres = new HashSet<>();
-		MovieGenre mgenres = new MovieGenre("terror");
-		moviesGenres.add(mgenres);
-		Set<FoodStyle> foodStyles = new HashSet<>();
-		FoodStyle fs = new FoodStyle("carne");
-		FoodStyle fs2 = new FoodStyle("carne2");
-		foodStyles.add(fs);
-		foodStyles.add(fs2);
-
-		Profile profile = new Profile( musicalGenres , moviesGenres, foodStyles, amountMax);
-		this.getServiceProfile().save(profile);
-
-		return profile;
-	}
-	*/
 	
 	@POST
 	@Path("/addmoviegenre/{id}/{value}")
@@ -169,5 +141,30 @@ public class ProfileWebService {
 		return Response.ok("SUCESS").build();
 	}
 	 */
+	
+	/*
+	@POST
+	@Path("/addprofile/{amountMax}")
+	@Produces("application/json")
+	public Profile addProfile(@PathParam("amountMax") final int amountMax) {
+		Set<MusicalGenre> musicalGenres = new HashSet<>();
+		MusicalGenre mg = new MusicalGenre("POP");
+		musicalGenres.add(mg);
+		Set<MovieGenre> moviesGenres = new HashSet<>();
+		MovieGenre mgenres = new MovieGenre("terror");
+		moviesGenres.add(mgenres);
+		Set<FoodStyle> foodStyles = new HashSet<>();
+		FoodStyle fs = new FoodStyle("carne");
+		FoodStyle fs2 = new FoodStyle("carne2");
+		foodStyles.add(fs);
+		foodStyles.add(fs2);
+
+		Profile profile = new Profile( musicalGenres , moviesGenres, foodStyles, amountMax);
+		this.getServiceProfile().save(profile);
+
+		return profile;
+	}
+	*/
+
 	
 }

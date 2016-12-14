@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Calendar;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -55,6 +56,15 @@ public class User extends model.Entity{
 	public User(){
 	}
 
+	
+	public User(String nameUser, String emailUser){
+		Set<MusicalGenre> musicalGenres = new HashSet<>();
+		Set<MovieGenre> moviesGenres = new HashSet<>();
+		Set<FoodStyle> foodStyles = new HashSet<>();
+		this.email = emailUser;
+		this.name = nameUser;
+		this.profile = new Profile(musicalGenres, moviesGenres, foodStyles, nameUser ,0, emailUser);
+	}
 
 	public User(String nameUser, String password, String emailUser,
 			Set<MusicalGenre> musicalGenres, Set<MovieGenre> moviesGenres, Set<FoodStyle> foodStyles, int amountMax) {

@@ -3,6 +3,8 @@ package persistence;
 import java.io.Serializable;
 import java.util.List;
 
+import model.Event;
+
 /**
  * Interface for generic DAO
  * 
@@ -25,5 +27,6 @@ public interface GenericRepository<T> {
 	int count();
 
 	List<T> findByExample(T exampleObject);
+
 
 }

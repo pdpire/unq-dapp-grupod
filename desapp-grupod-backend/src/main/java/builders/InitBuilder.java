@@ -34,8 +34,10 @@ public class InitBuilder {
 	@DependsOn("org.springframework.context.config.internalBeanConfigurerAspect")
 	public void create(){
 		
-		EventType et1 = new EventType("food");
-		EventType et2 = new EventType("enterteinment");
+		EventType et1 = new EventType("Food");
+		EventType et2 = new EventType("Musical");
+		EventType et3 = new EventType("Entretenimiento");
+		EventType et4 = new EventType("Deportes");
 		
 		Calendar d1 = Calendar.getInstance();
 		
@@ -58,7 +60,10 @@ public class InitBuilder {
 		User in2 = new User("nameiv2" , "passUseriv2", "userin2@mail.com", musicalGenres, moviesGenres, foodStyles, 250);
 
 		Place p1 = new Place(musicalGenres, moviesGenres, foodStyles, 100, 200);
-		Place p2 = new Place(musicalGenres, moviesGenres, foodStyles, 300, 400);
+		Place p2 = new Place(musicalGenres, moviesGenres, foodStyles, 200, 400);
+		Place p3 = new Place(musicalGenres, moviesGenres, foodStyles, 300, 400);
+		Place p4 = new Place(musicalGenres, moviesGenres, foodStyles, 400, 400);
+		Place p5 = new Place(musicalGenres, moviesGenres, foodStyles, 500, 400);
 		
 
 		
@@ -66,17 +71,31 @@ public class InitBuilder {
 		invs.add(in1);
 		invs.add(in2);
 
-		Event event1 = new EventStandart(us1, et1, d1, invs, p1);
+		Event event1 = new EventStandart(us1, et4, Calendar.getInstance(), new HashSet<User>(), p1);
+		event1.setDescription("Argentina Open");
 		
-		event1.setDescription("Festival de Cine Independiente");
+		Event event2 = new EventStandart(us2, et2, Calendar.getInstance(), new HashSet<User>(), p2);
+		event2.setDescription("Expo Luthiers");
 		
-		Event event2 = new EventStandart(us2, et2, d1, invs, p2);
+		Event event3 = new EventStandart(us2, et3, Calendar.getInstance(), new HashSet<User>(), p3);
+		event3.setDescription("Fuerza bruta");
+
+		Event event4 = new EventStandart(us2, et2, Calendar.getInstance(), new HashSet<User>(), p4);
+		event4.setDescription("Ultimo show pier");
 		
-		event2.setDescription("Expo Luthiers Argentinos");
+		Event event5 = new EventStandart(us2, et4, Calendar.getInstance(), new HashSet<User>(), p5);
+		event5.setDescription("Boca vs River");
+		
+		Event event6 = new EventStandart(us2, et1, Calendar.getInstance(), new HashSet<User>(), p5);
+		event6.setDescription("Pizza libre");
 
 		this.getServiceEvent().save(event1);
-		
 		this.getServiceEvent().save(event2);
+		this.getServiceEvent().save(event3);
+		this.getServiceEvent().save(event4);
+		this.getServiceEvent().save(event5);
+		this.getServiceEvent().save(event6);
 	}
 
 }
+

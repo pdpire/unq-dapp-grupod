@@ -34,46 +34,45 @@ public class UserWebService {
 	@GET
 	@Path("/getusers")
 	@Produces("application/json")
-	public Set<UserDTO> getUsers() {
-		return new UserDTO().copyOnList(this.getServiceUser().retriveAll());
+	public Response getUsers() {
+		try{
+			return Response.status(Response.Status.OK).entity(new UserDTO().copyOnList(this.getServiceUser().retriveAll())).build();
+		}catch (Exception e) {
+			return Response.status(Response.Status.OK).entity("Error").build();
+		}
 	}
 	
 	@POST
 	@Path("/adduser/{email}/{name}")
 	@Produces("application/json")
 	public Response addUser(@PathParam("email") final String email, @PathParam("name") final String name) {
-		Set<UserDTO> usersDtos = this.getUsers();
-		boolean f = true;
-		
-		for (UserDTO userDTO : usersDtos) {
-			if(userDTO.getEmail().equals(email)){
-				f = false;
+	
+		try{
+			User user = this.getServiceUser().getUserByEmail(email);
+			if(user == null){
+				User user1 = new User(name, email);
+				this.getServiceUser().save(user1);
+				return Response.status(Response.Status.OK).entity("OK").build();
 			}
-		}
-		if(f){
-			Set<MusicalGenre> musicalGenres = new HashSet<>();
-			Set<MovieGenre> moviesGenres = new HashSet<>();
-			Set<FoodStyle> foodStyles = new HashSet<>();
-			User user1 = new User(name, "", email, musicalGenres, moviesGenres, foodStyles, 0);
-			this.getServiceUser().save(user1);
 			return Response.status(Response.Status.OK).entity("OK").build();
-		}else{
-			return Response.status(Response.Status.OK).entity("Usuario creado").build();
+			
+		}catch (Exception e) {
+			return Response.status(Response.Status.EXPECTATION_FAILED).entity("FALLO").build();
 		}
 	}
 	
 	@DELETE
 	@Path("/deleteuser/{id}")
 	@Produces("application/json")
-	public String deleteProfile(@PathParam("id") final Integer id) {
+	public Response deleteProfile(@PathParam("id") final Integer id) {
 
 		try {
 			User user = this.getServiceUser().getId(id);
 			this.getServiceUser().delete(user);
 		} catch (Exception e) {
-			return "User not found";
+			return Response.status(Response.Status.OK).entity("User not found").build();
 		}
-		return "User deleted";
+		return Response.status(Response.Status.OK).entity("OK").build();
 	}
 	
 	

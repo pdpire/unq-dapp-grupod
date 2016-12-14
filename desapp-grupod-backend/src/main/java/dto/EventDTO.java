@@ -1,17 +1,12 @@
 package dto;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import model.Event;
-import model.EventStandart;
-import model.EventType;
-import model.Place;
-import model.StateEvent;
 import model.User;
 
 public class EventDTO implements Serializable{
@@ -27,8 +22,19 @@ public class EventDTO implements Serializable{
 	private String stateEvent;
 	private Set<User> listInvited;
 	private String description;
+	private String nombreInvitados;
+	private int id;
 	
-	
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
 	public Set<User> getListInvited() {
 		return listInvited;
 	}
@@ -95,13 +101,14 @@ public class EventDTO implements Serializable{
 		this.type = event.getType().getValue();
 		this.listInvited = event.getInvited();
 		this.description = event.getDescription();
+		this.id = event.getId();
 		
 		return this;
 
 	}
 	
 	
-	public Set<EventDTO> copyOnList(List<Event> listEvents){
+	public static Set<EventDTO> copyOnList(List<Event> listEvents){
 		
 		Set<EventDTO> listDto = new HashSet<EventDTO>();
 		
@@ -130,6 +137,16 @@ public class EventDTO implements Serializable{
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+
+	public String getNombreInvitados() {
+		return nombreInvitados;
+	}
+
+
+	public void setNombreInvitados(String nombreInvitados) {
+		this.nombreInvitados = nombreInvitados;
 	}
 	
 

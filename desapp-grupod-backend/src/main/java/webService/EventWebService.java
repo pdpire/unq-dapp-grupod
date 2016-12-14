@@ -3,6 +3,7 @@ package webService;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 import javax.ws.rs.GET;
@@ -26,7 +27,7 @@ import services.ServiceEvent;
 
 @Path("/event")
 public class EventWebService {
-	
+
 	private ServiceEvent serviceEvent;
 
 	public ServiceEvent getServiceEvent() {
@@ -36,24 +37,16 @@ public class EventWebService {
 	public void setServiceEvent(ServiceEvent serviceEvent) {
 		this.serviceEvent = serviceEvent;
 	}
-	
-	@GET
-	@Path("/getevents")
-	@Produces("application/json")
-	public Set<EventDTO> getEvents() {
-		
-		 return new EventDTO().copyOnList(this.getServiceEvent().retriveAll());
-	}
-	
+
 	@POST
 	@Path("/addevent/{type}")
 	@Produces("application/json")
 	public Response addEvent(@PathParam("type") final String type) {
-		
+
 		EventType et = new EventType(type);
-		
+
 		Calendar d = Calendar.getInstance();
-		
+
 		Set<MusicalGenre> musicalGenres = new HashSet<>();
 		MusicalGenre mg = new MusicalGenre("POP");
 		musicalGenres.add(mg);
@@ -63,13 +56,13 @@ public class EventWebService {
 		Set<FoodStyle> foodStyles = new HashSet<>();
 		FoodStyle fs = new FoodStyle("carne");
 		foodStyles.add(fs);
-		
+
 		User us = new User();
 		Place p = new Place(musicalGenres, moviesGenres, foodStyles, 100, 200);
-		
+
 		User in1 = new User();
 		User in2 = new User();
-		
+
 		Set<User> invs = new HashSet<User>();
 		invs.add(in1);
 		invs.add(in2);
@@ -79,23 +72,75 @@ public class EventWebService {
 		this.getServiceEvent().save(event);
 
 		Response resp = Response.status(Response.Status.OK).entity("OK").build();
-		 
+
 		return resp;
 
 	}
-	
+
 	@POST
-	@Path("/attend")
+	@Path("/attend/{idEvent}")
 	@Produces("application/json")
-	public Response attend() {
-		
-		Event event = this.getServiceEvent().getId(1);
-		
+	public Response attend(@PathParam("idEvent") final int idEvent) {
+
+		Event event = this.getServiceEvent().getId(idEvent);
+
 		event.addGuest(new User());
-		
+
 		this.getServiceEvent().update(event);
-		
+
 		return Response.status(Response.Status.OK).entity("OK").build();
 	}
+
+	@GET
+	@Path("/toName/{name}")
+	@Produces("application/json")
+	public Response getEventToName(@PathParam("name") final String name) {
+		Set<EventDTO> ret = null;
+		try {
+			ret = this.getServiceEvent().getEvent(name);
+		} catch (Exception e) {
+			Response.status(Response.Status.NOT_FOUND).build();
+		}
+		return Response.ok(ret).build();
+
+	}
+
+	@GET
+	@Path("/eventByAmount/{amount}")
+	@Produces("application/json")
+	public Response getEventsBy(@PathParam("amount") final Integer amount) {
+
+		Set<EventDTO> ret = null;
+		try {
+
+			ret = this.getServiceEvent().getEventByAmount(amount);
+
+		} catch (Exception e) {
+			Response.status(Response.Status.NOT_FOUND).build();
+		}
+		return Response.ok(ret).build();
+	}
+	
+	@GET
+	@Path("/geteventssorprise")
+	@Produces("application/json")
+	public Response getEventsSorprise() {
+		try {
+			return Response.ok(this.getServiceEvent().getEventsRandom()).build();	
+		}catch (Exception e) {
+			return Response.status(Response.Status.NOT_FOUND).build();
+		}
+	}
+	
+	@GET
+	@Path("/getevents")
+	@Produces("application/json")
+	public Response getEvents() {
+		try {
+		return Response.ok(new EventDTO().copyOnList(this.getServiceEvent().retriveAll())).build();
+		}catch (Exception e) {
+			return Response.status(Response.Status.NOT_FOUND).build();
+		}	
+		}
 
 }

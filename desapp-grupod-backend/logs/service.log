@@ -72,3 +72,66 @@ ms     %     Task name
 2016-12-13 23:04:58 INFO  Reflections:229 - Reflections took 98 ms to scan 1 urls, producing 1 keys and 2 values 
 2016-12-13 23:04:58 INFO  Reflections:229 - Reflections took 55 ms to scan 1 urls, producing 0 keys and 0 values 
 2016-12-13 23:16:13 INFO  Reflections:229 - Reflections took 374 ms to scan 1 urls, producing 2 keys and 6 values 
+2016-12-13 23:35:16 INFO  Reflections:229 - Reflections took 304 ms to scan 1 urls, producing 2 keys and 6 values 
+2016-12-14 00:03:06 INFO  ContextLoader:285 - Root WebApplicationContext: initialization started
+2016-12-14 00:03:07 INFO  XmlWebApplicationContext:510 - Refreshing Root WebApplicationContext: startup date [Wed Dec 14 00:03:07 ART 2016]; root of context hierarchy
+2016-12-14 00:03:07 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:/C:/Users/pablo/Documents/tpversionfinal/unq-dapp-grupod/desapp-grupod-backend/target/classes/META-INF/spring-persistence-context.xml]
+2016-12-14 00:03:09 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from URL [file:/C:/Users/pablo/Documents/tpversionfinal/unq-dapp-grupod/desapp-grupod-backend/target/classes/META-INF/spring-services-context.xml]
+2016-12-14 00:03:09 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+2016-12-14 00:03:09 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+2016-12-14 00:03:12 INFO  PropertyPlaceholderConfigurer:172 - Loading properties file from URL [file:/C:/Users/pablo/Documents/tpversionfinal/unq-dapp-grupod/desapp-grupod-backend/target/classes/META-INF/hibernate.properties]
+2016-12-14 00:03:12 INFO  PropertyPlaceholderConfigurer:172 - Loading properties file from URL [file:/C:/Users/pablo/Documents/tpversionfinal/unq-dapp-grupod/desapp-grupod-backend/target/classes/META-INF/jdbc.properties]
+2016-12-14 00:03:17 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2016-12-14 00:03:17 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2016-12-14 00:03:17 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2016-12-14 00:03:17 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2016-12-14 00:03:20 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-12-14 00:03:22 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-12-14 00:03:22 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2016-12-14 00:03:23 INFO  PojoInstantiator:85 - HHH000182: No default (no-argument) constructor for class: model.Finished (class must be instantiated by Interceptor)
+2016-12-14 00:03:25 INFO  SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2016-12-14 00:03:25 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Actived drop constraint fk_Actived
+2016-12-14 00:03:25 ERROR SchemaExport:427 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.ACTIVED
+2016-12-14 00:03:25 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Canceled drop constraint fk_Canceled
+2016-12-14 00:03:25 ERROR SchemaExport:427 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.CANCELED
+2016-12-14 00:03:25 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Event drop constraint FK_pinqh8c9muwcilq64fhspenv4
+2016-12-14 00:03:25 ERROR SchemaExport:427 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.EVENT
+2016-12-14 00:03:25 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Event drop constraint FK_hlri7bd3dnl37jib1wjfy8dmn
+2016-12-14 00:03:25 ERROR SchemaExport:427 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.EVENT
+2016-12-14 00:03:25 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Event drop constraint FK_i6q3cy7haljvk1mfwa9asemjf
+2016-12-14 00:03:25 ERROR SchemaExport:427 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.EVENT
+2016-12-14 00:03:25 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Event drop constraint FK_bvhug6vhxiy1kp1m2yjjshuil
+2016-12-14 00:03:25 ERROR SchemaExport:427 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.EVENT
+2016-12-14 00:03:25 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Finished drop constraint fk_Finished
+2016-12-14 00:03:25 ERROR SchemaExport:427 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.FINISHED
+2016-12-14 00:03:25 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Food_style drop constraint FK_9y8lc7as2cy8164eu63hcqsgp
+2016-12-14 00:03:25 ERROR SchemaExport:427 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.FOOD_STYLE
+2016-12-14 00:03:25 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Food_style drop constraint FK_4u7qpgygfi1j4y6wy66nmxj74
+2016-12-14 00:03:25 ERROR SchemaExport:427 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.FOOD_STYLE
+2016-12-14 00:03:25 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Movie_genre drop constraint FK_ncsr8y601s9e8xee1a5svw6nk
+2016-12-14 00:03:25 ERROR SchemaExport:427 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.MOVIE_GENRE
+2016-12-14 00:03:25 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Movie_genre drop constraint FK_5nv3pbw9ny5xsir5ia4k4026u
+2016-12-14 00:03:25 ERROR SchemaExport:427 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.MOVIE_GENRE
+2016-12-14 00:03:25 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Musical_genre drop constraint FK_8j1o1jsuvrufn6s44d5sml9mo
+2016-12-14 00:03:25 ERROR SchemaExport:427 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.MUSICAL_GENRE
+2016-12-14 00:03:25 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Musical_genre drop constraint FK_3y1r1p8a04yl7yyon743bxnsf
+2016-12-14 00:03:25 ERROR SchemaExport:427 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.MUSICAL_GENRE
+2016-12-14 00:03:25 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table User drop constraint FK_pwxsgrim4l41lua1ux0sim4u4
+2016-12-14 00:03:25 ERROR SchemaExport:427 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER
+2016-12-14 00:03:25 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table User drop constraint FK_hai8gejvx8wkrl7bb5hcx3pds
+2016-12-14 00:03:25 ERROR SchemaExport:427 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER
+2016-12-14 00:03:25 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table User drop constraint FK_734uwuwsy55m75by4vyr7vq1u
+2016-12-14 00:03:25 ERROR SchemaExport:427 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER
+2016-12-14 00:03:25 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table User drop constraint FK_rskt5qtdrlshaaxwpkh1cpu91
+2016-12-14 00:03:25 ERROR SchemaExport:427 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER
+2016-12-14 00:03:25 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table User drop constraint FK_lvtifjvqajgtua2ipyi9h9x7r
+2016-12-14 00:03:25 ERROR SchemaExport:427 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USER
+2016-12-14 00:03:25 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table stateevent drop constraint FK_m4fdk758ohxidpnbiv98p4ff0
+2016-12-14 00:03:25 ERROR SchemaExport:427 - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.STATEEVENT
+2016-12-14 00:03:25 INFO  SchemaExport:406 - HHH000230: Schema export complete
+2016-12-14 00:03:26 INFO  HibernateTransactionManager:360 - Using DataSource [org.apache.commons.dbcp.BasicDataSource@e344ad3] of Hibernate SessionFactory for HibernateTransactionManager
+2016-12-14 00:03:26 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2016-12-14 00:03:26 INFO  SQLErrorCodesFactory:126 - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2016-12-14 00:03:30 WARN  ResourceUtils:373 - No resource methods have been found for resource class builders.InitBuilder
+2016-12-14 00:03:31 INFO  ServerImpl:94 - Setting the server's publish address to be /
+2016-12-14 00:03:31 INFO  ContextLoader:325 - Root WebApplicationContext: initialization completed in 24968 ms
