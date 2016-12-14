@@ -1,17 +1,15 @@
 package factory;
 
-//import java.util.ArrayList;
-//
-//import model.Event;
-//import model.Place;
+import model.EventStandart;
+import model.Place;
 
 public class EventFactory {
-//	
-//	public static Event eventWithPlaces(ArrayList<Place> places){
-//		
-//		Event event = new Event(null, null, null, places);
-//		
-//	    return event;
-//	}
+	
+	public static EventStandart eventWithPlace(Place place){
+		
+		EventStandart event = new EventStandart(null, null, null, null, place);
+		
+	    return event;
+	}
 
 }

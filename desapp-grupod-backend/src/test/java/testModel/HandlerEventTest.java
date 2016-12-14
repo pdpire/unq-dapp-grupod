@@ -1,13 +1,16 @@
 package testModel;
 
-//import static org.junit.Assert.*;
-//import static org.mockito.Mockito.*;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 //
 //import java.util.ArrayList;
 //
-//import org.junit.Test;
+import org.junit.Test;
+
+import model.Event;
 //
-//import model.HandlerEvent;
+import model.HandlerEvent;
+import model.User;
 //import model.HandlerFilter;
 //import model.Place;
 
@@ -33,6 +36,23 @@ public class HandlerEventTest {
 //		assertEquals(handlerEvent.getEvents().size(), 1);
 //	}
 //	
+	
+	@Test
+	public void gotToEventTest(){
+		HandlerEvent handlerEvent = new HandlerEvent();
+		
+		Event event = mock(Event.class);
+		User user = mock(User.class);
+		
+		handlerEvent.setUserAdmin(user);
+		
+		doNothing().when(event).addGuest(user);
+		
+		handlerEvent.goToEvent(event);
+		
+		verify(event, times(1)).addGuest(user);
+		
+	}
 
 
 }
